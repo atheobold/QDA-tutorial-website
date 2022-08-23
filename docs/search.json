@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Coding Code: Qualitative Methods for Investigating Data Science Skills",
+    "section": "",
+    "text": "Students are creative thinkers, and their code provides a window into their learning process. A qualitative analysis of a student’s code can provide insight into their creative process and collective learning process, rather than focusing solely on whether the code is executable. Moreover, qualitative methods allow for the comparison across students’ code to identify learning trajectories that may exist and potential growth points."
+  },
+  {
+    "objectID": "blog.html#structure-of-tutorial",
+    "href": "blog.html#structure-of-tutorial",
+    "title": "A Guide to Qualitatively Analyzing Computing Code",
+    "section": "Structure of Tutorial",
+    "text": "Structure of Tutorial\nThe pages of this website correspond to different aspects of the analysis process as pictured above.\n\nI discuss how one selects a unit of analysis\nI outline how descriptive codes are created\nI walk through how codes can be collapsed into emergent themes\nI describe how student interviews allowed me to dig deeper into the themes that emerged\nI talk through how to make comparisons across individual’s themes"
+  },
+  {
+    "objectID": "analysis-framework.html",
+    "href": "analysis-framework.html",
+    "title": "Step 1: Analytical Framework",
+    "section": "",
+    "text": "Block Model: an educational model of program comprehension as a tool for a scholarly approach to teaching\n\n\n\n\n\n\n\n\n\nLevel\n\nDimension\n\n\n\n\n\n\nText Surface\nProgram Execution\nFunction / Purpose\n\n\nMacrostructure\nUnderstanding the overall structure of the program text.\nUnderstanding the algorithm underlying a program.\nUnderstanding the goal/purpose of the program (in the context at hand).\n\n\nRelationships\nRelations & references between blocks (e.g. method calls, object creation, accessing data…)\nSequence of method calls, object sequence diagrams.\nUnderstanding how subgoals are related to goals, how function is achieved by subfunctions.\n\n\nBlocks\nRegions of interest (ROI) that syntactically or semantically build a unit\nOperations of a block, a method, or a ROI (chunk from a set of statements).\nUnderstanding the function of a block, seen as a subgoal.\n\n\nAtoms\nLanguage elements\nOperation of a statement.\nFunction of a statement: its purpose can only be understood in a context."
+  },
+  {
+    "objectID": "bio.html",
+    "href": "bio.html",
+    "title": "Allison Theobold",
+    "section": "",
+    "text": "Allison Theobold is an Associate Professor of Statistics at California Polytechnic University in beautiful San Luis Obispo, California. Allison’s work focuses on innovation in statistics and data science education, with an emphasis on equitable pedagogy and learning trajectories. Allison is also interested in exploring pedagogical approaches for enhancing retention of under-represented students in STEM, including creating inclusive discoursive spaces and equitable group collaborations."
+  },
+  {
+    "objectID": "bio.html#education",
+    "href": "bio.html#education",
+    "title": "Allison Theobold",
+    "section": "Education",
+    "text": "Education\nMontana State University | Bozeman, MT PhD in Statistics | 2020 M.S. in Statistics | 2016\nColorado Mesa University | Grand Junction, CO B.S. in Mathematics | 2014 B.B.A. in Economics | 2014"
+  },
+  {
+    "objectID": "bio.html#publications",
+    "href": "bio.html#publications",
+    "title": "Allison Theobold",
+    "section": "Publications",
+    "text": "Publications\nTheobold, A. S. & Williams. “I watched as he put things on the paper”: A Feminist View of Mathematical Discourse, Psychology of Mathematics Education North America (PME-NA) Conference.\nAmal Abdel-Ghani, Kelly Bodwin, Amelia McNamara, Allison Theobold, and Ian Flores Siaca (2022). “Looks okay to me”: A study of best practice in data analysis code review, International Conference on Teaching Statistics (ICOTS) Conference.\nTheobold, A. (2021). Oral Exams: A More Meaningful Assessment of Statistical Understanding}, Journal of Statistics and Data Science Education, Brief Commentary.\nTheobold, A. S. & Williams, D. A. (2021). Discourse Patterns in a Small Group “Collaboration”: The Case of Uma and Sean. In Karunakaran, S. S. & Higgins, A. (Eds.), 2021 Research in Undergraduate Mathematics Education Reports (pp. 324-331).\nTheobold, A.}, Hancock, S., & Mannheimer, S. (2021). Designing Data Science Workshops for Data-Intensive Environmental Science Research}, Journal of Statistics Education, 29(sup1), S83-S94.\nTheobold, A. and Hancock, S. (2019). How Environmental Science Graduate Students Acquire Statistical Computing Skills}, Statistics Education Research Journal, 18(2), 68-85."
+  }
+]

@@ -1,0 +1,35 @@
+---
+title: "A Guide to Qualitatively Analyzing Computing Code"
+page-layout: full
+---
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+knitr::include_graphics(
+  here::here("images", "paper_process.png")
+                        )
+```
+
+# Welcome!
+
+My intention for this website is to provide a step-by-step resource for how one
+qualitatively analyzes computing code, so you (!) can draw on this work to
+research the teaching and learning of data science in new ways. Qualitative
+coding in data science is a building block that can lead to more extensive
+research going forward including conceptualize student learning and
+growth and understanding learning environments that promote growth. 
+
+## Structure of Tutorial
+
+The pages of this website correspond to different aspects of the analysis
+process as pictured above. 
+
+1. I discuss how one selects a unit of analysis
+2. I outline how descriptive codes are created
+3. I walk through how codes can be collapsed into emergent themes
+4. I describe how student interviews allowed me to dig deeper into the themes
+that emerged
+5. I talk through how to make comparisons across individual's themes
+

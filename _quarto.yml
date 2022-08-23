@@ -1,0 +1,51 @@
+project:
+  type: website
+  title: "QDA for Computing Code"
+  execute-dir: project
+  output-dir: docs
+  render: 
+      - index.qmd
+      - blog.qmd
+      - analysis-framework.qmd
+      - descriptive-codes.qmd
+      - themes.qmd
+      - digging-deeper.qmd
+      - comparing-students.qmd
+      - bio.qmd
+
+website:
+  title: "A Guide to Qualitatively Analyzing Computing Code"
+  # site-url: https://crsl4.github.io/julia-workshop
+  repo-url: https://github.com/atheobold/QDA-tutorial-website
+  repo-actions: [issue]
+  navbar:
+    background: primary
+    search: true
+    left:
+       - text: Home
+         file: blog.qmd
+       - text: Step-by-Step Guide
+         file: index.qmd
+       - text: About
+         file: bio.qmd
+
+  sidebar:
+    - title: Step-by-Step Guide
+      style: "docked"
+      background: light
+      contents:
+      - analysis-framework.qmd
+      - descriptive-codes.qmd
+      - themes.qmd
+      - digging-deeper.qmd
+      - comparing-students.qmd
+  
+  page-navigation: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+callout-appearance: simple
