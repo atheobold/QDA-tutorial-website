@@ -1,0 +1,19 @@
+---
+title: "Step 1: Analytical Framework"
+page-layout: full
+---
+
+# Block Model 
+
+
+[Block Model: an educational model of program comprehension as a tool for a scholarly approach to teaching](https://dl.acm.org/doi/10.1145/1404520.1404535)
+
+|   Level   |        |   Dimension   |       |
+|:----------|:------:|:-------------:|:-------:|
+|           |   Text Surface    |   Program Execution   |   Function / Purpose    |
+| *Macrostructure* | Understanding the overall structure of the program text. | Understanding the algorithm underlying a program. | Understanding the goal/purpose of the program (in the context at hand). |
+| *Relationships* | Relations & references between blocks (e.g. method calls, object creation, accessing data...) | Sequence of method calls, object sequence diagrams. | Understanding how subgoals are related to goals, how function is achieved by subfunctions. |
+| *Blocks* | Regions of interest (ROI) that syntactically or semantically build a unit | Operations of a block, a method, or a ROI (chunk from a set of statements). | Understanding the function of a block, seen as a subgoal. |
+| *Atoms* | Language elements | Operation of a statement. | Function of a statement: its purpose can only be understood in a context. |
+
+

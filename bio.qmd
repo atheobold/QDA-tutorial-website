@@ -1,0 +1,37 @@
+---
+title: "Allison Theobold"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/allisontheobold
+    - icon: github
+      text: Github
+      href: https://github.com/atheobold
+---
+
+Allison Theobold is an Associate Professor of Statistics at California Polytechnic University in beautiful San Luis Obispo, California. Allison's work focuses on innovation in statistics and data science education, with an emphasis on equitable pedagogy and learning trajectories. Allison is also interested in exploring pedagogical approaches for enhancing retention of under-represented students in STEM, including creating inclusive discoursive spaces and equitable group collaborations.
+
+## Education
+
+Montana State University | Bozeman, MT PhD in Statistics | 2020 M.S. in Statistics | 2016
+
+Colorado Mesa University | Grand Junction, CO B.S. in Mathematics | 2014 B.B.A. in Economics | 2014
+
+## Publications
+
+Theobold, A. S. & Williams. "I watched as he put things on the paper": A Feminist View of Mathematical Discourse, *Psychology of Mathematics Education North America (PME-NA) Conference*.
+
+Amal Abdel-Ghani, Kelly Bodwin, Amelia McNamara, Allison Theobold, and Ian Flores Siaca (2022). "Looks okay to me": A study of best practice in data analysis code review, *International Conference on Teaching Statistics (ICOTS) Conference*.
+
+Theobold, A. (2021). Oral Exams: A More Meaningful Assessment of Statistical Understanding}, *Journal of Statistics and Data Science Education*, Brief Commentary.
+
+Theobold, A. S. & Williams, D. A. (2021). Discourse Patterns in a Small Group "Collaboration": The Case of Uma and Sean. In Karunakaran, S. S. & Higgins, A. (Eds.), 2021 Research in Undergraduate Mathematics Education Reports (pp. 324-331).
+
+Theobold, A.}, Hancock, S., & Mannheimer, S. (2021). Designing Data Science Workshops for Data-Intensive Environmental Science Research}, *Journal of Statistics Education*, 29(sup1), S83-S94.
+
+Theobold, A. and Hancock, S. (2019). How Environmental Science Graduate Students Acquire Statistical Computing Skills}, *Statistics Education Research Journal*, 18(2), 68-85.
+
+![](images/yosemite.jpg)
