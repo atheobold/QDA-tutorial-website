@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Guide to Qualitatively Analyzing Computing Code - Step 1: Analytical Framework</title>
+<title>A Guide to Qualitatively Analyzing Computing Code - Step 1: Selecting a Unit of Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,25 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -59,7 +78,7 @@ ul.task-list{list-style: none;}
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -89,7 +108,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Step 1: Analytical Framework</h1>
+      <h1 class="quarto-secondary-nav-title">Step 1: Selecting a Unit of Analysis</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,14 +116,14 @@ ul.task-list{list-style: none;}
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analysis-framework.html" class="sidebar-item-text sidebar-link active">Step 1: Analytical Framework</a>
+  <a href="./analysis-framework.html" class="sidebar-item-text sidebar-link active">Step 1: Selecting a Unit of Analysis</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -137,15 +156,16 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#block-model" id="toc-block-model" class="nav-link active" data-scroll-target="#block-model">Block Model</a></li>
+  <li><a href="#analytical-framework-used" id="toc-analytical-framework-used" class="nav-link" data-scroll-target="#analytical-framework-used">Analytical Framework Used</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/atheobold/QDA-tutorial-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Step 1: Analytical Framework</h1>
+<h1 class="title d-none d-lg-block">Step 1: Selecting a Unit of Analysis</h1>
 </div>
 
 
@@ -159,9 +179,18 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="block-model" class="level1">
-<h1>Block Model</h1>
-<p><a href="https://dl.acm.org/doi/10.1145/1404520.1404535">Block Model: an educational model of program comprehension as a tool for a scholarly approach to teaching</a></p>
+<p>The process of data analysis begins by identifying segments in your data set that are responsive to your research questions” <span class="citation" data-cites="merriam">(<a href="#ref-merriam" role="doc-biblioref">Merriam and Tisdell 2016</a>)</span>. These segments form the units of analysis (UOA), which can be as small as a single word or as large as an entire report. Collectively, themes identified in these units will answer a study’s research question(s). <span class="citation" data-cites="lincoln">Lincoln and Guba (<a href="#ref-lincoln" role="doc-biblioref">1985</a>)</span> suggest that a unit of analysis ought to meet two criteria. First, the UOA should be heuristic, that is, it should reveal information pertinent to the study and move the reader to think beyond the singular piece of information. Second, the unit should be the smallest piece of information about something that can stand by itself.” Moreover, a UOA must be interpretable in the absence of any additional information, requiring only that the reader have a broad understanding of the study context.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-merriam" class="csl-entry" role="doc-biblioentry">
+Merriam, S. B., and E. J. Tisdell. 2016. <em>Qualitative Research</em>. San Francisco, CA: John Wiley &amp; Sons.
+</div><div id="ref-lincoln" class="csl-entry" role="doc-biblioentry">
+Lincoln, Y. S., and E. G. Guba. 1985. <em>Naturalistic Inquiry</em>. Thousand Oaks, CA: Sage.
+</div></div><p>For qualitative investigations of students’ computing code, we propose researchers consider the Block Model as an analytical lens. The Block Model is an educational framework that supports the analysis of the different aspects of a computer program.</p>
+<section id="block-model" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="block-model">Block Model</h2>
+<p>In the <a href="https://dl.acm.org/doi/10.1145/1404520.1404535">Block Model</a> <span class="citation" data-cites="schulte">(<a href="#ref-schulte" role="doc-biblioref">Schulte 2008</a>)</span>, each row represents one selection for the unit of analysis and each column speaks to a different lens of analysis. To decide between the 12 possible options a researcher must consider the context of inquiry. This context dictates the scale of the code that deserves attention.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-schulte" class="csl-entry" role="doc-biblioentry">
+Schulte, C. 2008. <span>“Block Model: An Educational Model of Program Comprehension as a Tool for a Scholarly Approach to Teaching.”</span> In <em>Proceedings of the Fourth International Workshop on Computing Education Research</em>, 149–60. Sydney, Australia: Association of Computing Machinery; Association of Computing Machinery.
+</div></div><p>An investigation focusing on the broader purpose or structure of a program requires a researcher to zoom out and consider a program’s macrostructure. Whereas, studying individual pieces or segments of a program requires a researcher to zoom in on the atoms or the blocks.</p>
 <table class="table">
 <colgroup>
 <col style="width: 25%">
@@ -210,6 +239,12 @@ ul.task-list{list-style: none;}
 </tr>
 </tbody>
 </table>
+</section>
+<section id="analytical-framework-used" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="analytical-framework-used">Analytical Framework Used</h2>
+<div class="page-columns page-full"><p>For the study I will walk you through, I chose to use <strong>atoms</strong> as my unit of study. An atom constitutes a language element in a program, and can thus have a variety of grain sizes, from characters to words to statements. I chose to have my “atom” be a syntactic statement of R code. A syntactic statement is a line, or set of lines, which constitute the smallest syntactically valid statement of code. Some statements of code were completed in a single line, while others took multiple lines.*</p><div class="no-row-height column-margin column-container"><span class="aside">*As R belongs to the family of “curly bracket” programming languages, influenced by C, R has a syntax which defines statements using curly brackets (<code>{}</code>), many of these statements are introduced by identifiers such as <code>if()</code>, <code>for()</code>, or <code>while()</code>.</span></div></div>
+<p>For this study, I selected the <strong>program execution</strong> as my dimension of analysis. This dimension focuses on the action of each statement, or more specifically what operation it carries out. I chose this dimension as I was interested in understanding what data science skills students were employing within their projects. A program execution lens views these skills as distinct rather than considering their role in the broader function of the program.</p>
+
 
 
 </section>
@@ -294,7 +329,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">

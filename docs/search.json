@@ -16,9 +16,44 @@
   {
     "objectID": "analysis-framework.html",
     "href": "analysis-framework.html",
-    "title": "Step 1: Analytical Framework",
+    "title": "Step 1: Selecting a Unit of Analysis",
     "section": "",
-    "text": "Block Model: an educational model of program comprehension as a tool for a scholarly approach to teaching\n\n\n\n\n\n\n\n\n\nLevel\n\nDimension\n\n\n\n\n\n\nText Surface\nProgram Execution\nFunction / Purpose\n\n\nMacrostructure\nUnderstanding the overall structure of the program text.\nUnderstanding the algorithm underlying a program.\nUnderstanding the goal/purpose of the program (in the context at hand).\n\n\nRelationships\nRelations & references between blocks (e.g. method calls, object creation, accessing data…)\nSequence of method calls, object sequence diagrams.\nUnderstanding how subgoals are related to goals, how function is achieved by subfunctions.\n\n\nBlocks\nRegions of interest (ROI) that syntactically or semantically build a unit\nOperations of a block, a method, or a ROI (chunk from a set of statements).\nUnderstanding the function of a block, seen as a subgoal.\n\n\nAtoms\nLanguage elements\nOperation of a statement.\nFunction of a statement: its purpose can only be understood in a context."
+    "text": "The process of data analysis begins by identifying segments in your data set that are responsive to your research questions” (Merriam and Tisdell 2016). These segments form the units of analysis (UOA), which can be as small as a single word or as large as an entire report. Collectively, themes identified in these units will answer a study’s research question(s). Lincoln and Guba (1985) suggest that a unit of analysis ought to meet two criteria. First, the UOA should be heuristic, that is, it should reveal information pertinent to the study and move the reader to think beyond the singular piece of information. Second, the unit should be the smallest piece of information about something that can stand by itself.” Moreover, a UOA must be interpretable in the absence of any additional information, requiring only that the reader have a broad understanding of the study context.\nFor qualitative investigations of students’ computing code, we propose researchers consider the Block Model as an analytical lens. The Block Model is an educational framework that supports the analysis of the different aspects of a computer program."
+  },
+  {
+    "objectID": "analysis-framework.html#block-model",
+    "href": "analysis-framework.html#block-model",
+    "title": "Step 1: Selecting a Unit of Analysis",
+    "section": "Block Model",
+    "text": "Block Model\nIn the Block Model (Schulte 2008), each row represents one selection for the unit of analysis and each column speaks to a different lens of analysis. To decide between the 12 possible options a researcher must consider the context of inquiry. This context dictates the scale of the code that deserves attention.\n\nSchulte, C. 2008. “Block Model: An Educational Model of Program Comprehension as a Tool for a Scholarly Approach to Teaching.” In Proceedings of the Fourth International Workshop on Computing Education Research, 149–60. Sydney, Australia: Association of Computing Machinery; Association of Computing Machinery.\nAn investigation focusing on the broader purpose or structure of a program requires a researcher to zoom out and consider a program’s macrostructure. Whereas, studying individual pieces or segments of a program requires a researcher to zoom in on the atoms or the blocks.\n\n\n\n\n\n\n\n\n\nLevel\n\nDimension\n\n\n\n\n\n\nText Surface\nProgram Execution\nFunction / Purpose\n\n\nMacrostructure\nUnderstanding the overall structure of the program text.\nUnderstanding the algorithm underlying a program.\nUnderstanding the goal/purpose of the program (in the context at hand).\n\n\nRelationships\nRelations & references between blocks (e.g. method calls, object creation, accessing data…)\nSequence of method calls, object sequence diagrams.\nUnderstanding how subgoals are related to goals, how function is achieved by subfunctions.\n\n\nBlocks\nRegions of interest (ROI) that syntactically or semantically build a unit\nOperations of a block, a method, or a ROI (chunk from a set of statements).\nUnderstanding the function of a block, seen as a subgoal.\n\n\nAtoms\nLanguage elements\nOperation of a statement.\nFunction of a statement: its purpose can only be understood in a context."
+  },
+  {
+    "objectID": "analysis-framework.html#analytical-framework-used",
+    "href": "analysis-framework.html#analytical-framework-used",
+    "title": "Step 1: Selecting a Unit of Analysis",
+    "section": "Analytical Framework Used",
+    "text": "Analytical Framework Used\nFor the study I will walk you through, I chose to use atoms as my unit of study. An atom constitutes a language element in a program, and can thus have a variety of grain sizes, from characters to words to statements. I chose to have my “atom” be a syntactic statement of R code. A syntactic statement is a line, or set of lines, which constitute the smallest syntactically valid statement of code. Some statements of code were completed in a single line, while others took multiple lines.**As R belongs to the family of “curly bracket” programming languages, influenced by C, R has a syntax which defines statements using curly brackets ({}), many of these statements are introduced by identifiers such as if(), for(), or while().\nFor this study, I selected the program execution as my dimension of analysis. This dimension focuses on the action of each statement, or more specifically what operation it carries out. I chose this dimension as I was interested in understanding what data science skills students were employing within their projects. A program execution lens views these skills as distinct rather than considering their role in the broader function of the program."
+  },
+  {
+    "objectID": "descriptive-codes.html",
+    "href": "descriptive-codes.html",
+    "title": "Step 2: Descriptive Codes",
+    "section": "",
+    "text": "The second step in the qualitative analysis is creating qualitative codes for each unit of analysis (UOA).\nThe process of coding in qualitative research, where a researcher makes notes next to each UOA that are potentially relevant to addressing the research question. Codes act as labels, assigning “symbolic meaning” to each UOA (Miles, Huberman, and Saldaña 2020). In our context, each line of R code is a UOA, which is why we are “coding code.”\nThe initial qualitative codes assigned to the units of analysis can be thought of as the “first cycle codes.” There are over 25 different methods for creating first cycle codes, each with a particular focus and purpose. In our paper, we discuss two specific methods of coding we believe are most relevant to investigating computing code: descriptive coding and in vivo coding.\nFor this research, I chose to use descriptive codes as I sought to describe the computing skills students were using in their research project. With in vivo coding, these descriptions would be required to take on the voice (code) of each student, which I felt constrained the possible descriptions available to me."
+  },
+  {
+    "objectID": "descriptive-codes.html#student-a-descriptive-codes",
+    "href": "descriptive-codes.html#student-a-descriptive-codes",
+    "title": "Step 2: Descriptive Codes",
+    "section": "Student A – Descriptive Codes",
+    "text": "Student A – Descriptive Codes\nIf you are interested in seeing the original R script file from Student A, you can find that here."
+  },
+  {
+    "objectID": "descriptive-codes.html#student-b-descriptive-codes",
+    "href": "descriptive-codes.html#student-b-descriptive-codes",
+    "title": "Step 2: Descriptive Codes",
+    "section": "Student B – Descriptive Codes",
+    "text": "Student B – Descriptive Codes\nIf you are interested in seeing the original R script file from Student A, you can find that here."
   },
   {
     "objectID": "bio.html",
