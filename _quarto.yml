@@ -37,8 +37,8 @@ website:
       - analysis-framework.qmd
       - descriptive-codes.qmd
       - themes.qmd
-      - digging-deeper.qmd
       - comparing-students.qmd
+      - digging-deeper.qmd
   
   page-navigation: true
 
