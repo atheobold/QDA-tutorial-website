@@ -1,3 +1,34 @@
 ---
 title: "Optional: Comparing Across Students"
+page-layout: full
+reference-location: margin
+citation-location: margin
+bibliography: ref-1.bib
+execute: 
+  echo: false
 ---
+
+### Workflow
+
+::: {.column-margin}
+![](images/workflow.png)
+:::
+
+### Efficiency / Inefficiency
+
+::: {.column-margin}
+![](images/efficient.png)
+:::
+
+
+### Readability 
+
+::: {.column-margin}
+![](images/read.png)
+:::
+
+### Reproducibility
+
+::: {.column-margin}
+![](images/reproduce.png)
+:::

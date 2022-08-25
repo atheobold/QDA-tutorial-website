@@ -1,7 +1,12 @@
 ---
 title: "Step 3: Discovering Emergent Themes"
+page-layout: full
+reference-location: margin
+citation-location: margin
+bibliography: ref-1.bib
+execute: 
+  echo: false
 ---
-
 
 ```{r}
 #| include: false
@@ -28,5 +33,133 @@ studentA <- read_xlsx(
 studentB <- read_xlsx(
   here::here("data", "code_book.xlsx"), 
   sheet = "studentB"
-  )
+  ) %>% 
+  pivot_longer(cols = starts_with("theme"),
+               names_to = "theme", 
+               values_to = "theme_note"
+              ) %>% 
+  pivot_longer(cols = starts_with("note"), 
+               names_to = "note", 
+               values_to = "notes"
+               ) %>% 
+  select(-theme, -note) %>% 
+  drop_na(theme_note, notes)
+
+students <- full_join(studentA, 
+                      studentB, 
+                      by = c("code", "descriptive_code", "theme_note", "notes")
+                      )
+```
+
+
+In the next stage of coding, often called “pattern coding” [@miles], we group
+the descriptive codes made in the previous phase into a smaller number of
+categories or themes. Themes or categories "are broad units of information that
+consist of several codes aggregated to form a common idea" [@creswell p.194].
+These categories can be thought of as somewhat of a meta-code.*[*For quantitative researchers, this process can be thought of as an analog to cluster-oriented or factor-oriented approaches in statistical analysis.]{.aside}
+
+::: {.column-margin}
+![](images/forest.png)
+:::
+
+Categories should span multiple codes that were previously identified. These
+categories "capture some recurring pattern that cuts across your data" 
+[@merriam, p. 207]. @merriam suggest this process of discovering themes from
+codes feels somewhat like constantly transitioning one’s perspective of a
+forest, from looking at the “trees” (codes) to the “forest” (themes) and back to
+the trees.
+
+## Discoving Themes
+
+As I looked over my descriptive codes, I asked myself what these codes tell me about 
+the nature of the data science skills students used in their projects. Some themes
+immediately jumped out at me, whereas others took a bit of time for me to mull over.
+
+The theme of "Data Model" was readily apparent from each student's code. Student A 
+used `lm()` to fit a variety of linear regressions, while student B used `nlm()` to
+minimize a previously defined function. 
+
+"Data Visualization" was another theme that jumped out at me. Both students created
+scatterplots, included different colored points, and a legend. 
+
+
+### R Environment 
+
+::: {.column-margin}
+![](images/environment.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "R environment") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
+### Data Structures
+
+::: {.column-margin}
+![](images/structures.png)
+:::
+    
+```{r}
+students %>% 
+  filter(theme_note == "data structures") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
+
+### Data Model 
+
+::: {.column-margin}
+![](images/data-model.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "data model") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
+### Data Wrangling
+
+::: {.column-margin}
+![](images/wrangle.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "data wrangling") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
+### Data Visualization
+
+::: {.column-margin}
+![](images/visualization.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "data visualization") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
 ```

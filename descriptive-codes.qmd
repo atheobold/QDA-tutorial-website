@@ -4,6 +4,8 @@ page-layout: full
 reference-location: margin
 citation-location: margin
 bibliography: ref-1.bib
+execute: 
+  echo: false
 ---
 
 ```{r}
