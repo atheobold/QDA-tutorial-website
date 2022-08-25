@@ -56,6 +56,27 @@
     "text": "Student B – Descriptive Codes\nIf you are interested in seeing the original R script file from Student A, you can find that here."
   },
   {
+    "objectID": "themes.html",
+    "href": "themes.html",
+    "title": "Step 3: Discovering Emergent Themes",
+    "section": "",
+    "text": "In the next stage of coding, often called “pattern coding” (Miles, Huberman, and Saldaña 2020), we group the descriptive codes made in the previous phase into a smaller number of categories or themes. Themes or categories “are broad units of information that consist of several codes aggregated to form a common idea” (Creswell and Poth 2018, 194). These categories can be thought of as somewhat of a meta-code.**For quantitative researchers, this process can be thought of as an analog to cluster-oriented or factor-oriented approaches in statistical analysis.\nCategories should span multiple codes that were previously identified. These categories “capture some recurring pattern that cuts across your data” (Merriam and Tisdell 2016, 207). Merriam and Tisdell (2016) suggest this process of discovering themes from codes feels somewhat like constantly transitioning one’s perspective of a forest, from looking at the “trees” (codes) to the “forest” (themes) and back to the trees."
+  },
+  {
+    "objectID": "themes.html#discoving-themes",
+    "href": "themes.html#discoving-themes",
+    "title": "Step 3: Discovering Emergent Themes",
+    "section": "Discoving Themes",
+    "text": "Discoving Themes\nAs I looked over my descriptive codes, I asked myself what these codes tell me about the nature of the data science skills students used in their projects. Some themes immediately jumped out at me, whereas others took a bit of time for me to mull over.\nThe theme of “Data Model” was readily apparent from each student’s code. Student A used lm() to fit a variety of linear regressions, while student B used nlm() to minimize a previously defined function.\n“Data Visualization” was another theme that jumped out at me. Both students created scatterplots, included different colored points, and a legend.\n\nR Environment\n\n\n\n\n\n\n\n\n\n\n\n\nData Structures\n\n\n\n\n\n\n\n\n\n\n\n\nData Model\n\n\n\n\n\n\n\n\n\n\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization"
+  },
+  {
+    "objectID": "comparing-students.html",
+    "href": "comparing-students.html",
+    "title": "Optional: Comparing Across Students",
+    "section": "",
+    "text": "Efficiency / Inefficiency\n\n\n\n\n\nReadability\n\n\n\n\n\nReproducibility"
+  },
+  {
     "objectID": "bio.html",
     "href": "bio.html",
     "title": "Allison Theobold",
