@@ -20,6 +20,8 @@ Montana State University | Bozeman, MT PhD in Statistics | 2020 M.S. in Statisti
 
 Colorado Mesa University | Grand Junction, CO B.S. in Mathematics | 2014 B.B.A. in Economics | 2014
 
+![](images/slo.jpg)
+
 ## Publications
 
 Theobold, A. S. & Williams. "I watched as he put things on the paper": A Feminist View of Mathematical Discourse, *Psychology of Mathematics Education North America (PME-NA) Conference*.
@@ -35,3 +37,4 @@ Theobold, A.}, Hancock, S., & Mannheimer, S. (2021). Designing Data Science Work
 Theobold, A. and Hancock, S. (2019). How Environmental Science Graduate Students Acquire Statistical Computing Skills}, *Statistics Education Research Journal*, 18(2), 68-85.
 
 ![](images/yosemite.jpg)
+
