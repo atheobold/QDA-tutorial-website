@@ -10,24 +10,62 @@ execute:
 
 ### Workflow
 
+<!-- How code comments were used between the two students -->
+<!-- How objects were inspected in the code vs. in the console -->
+
 ::: {.column-margin}
 ![](images/workflow.png)
 :::
 
+```{r}
+students %>% 
+  filter(theme_note == "workflow") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+
+```
+
+
 ### Efficiency / Inefficiency
+
+<!-- Repeated tasks differences between students -->
 
 ::: {.column-margin}
 ![](images/efficient.png)
 :::
 
+```{r}
+students %>% 
+  filter(theme_note %in% c("inefficiency", "efficiency")) %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
+
 
 ### Readability 
+
+<!-- Use of whitespace around delimiters, named arguments, new lines for long code  -->
 
 ::: {.column-margin}
 ![](images/read.png)
 :::
 
 ### Reproducibility
+
+<!-- No data loading code in Student A -->
+<!-- Student A had code that wouldn't run (required a package be loaded but wasn't until later, reference to non-existant objects) -->
+
+<!-- Student B had all used functions / data sourced in to R script -->
+<!-- Still, the project would be difficult to share as there was a mix of full paths -->
+<!-- and relative paths which another user would need to modify -->
+<!-- Keep in mind RStudio projects were not a thing when these students were completing their project -->
 
 ::: {.column-margin}
 ![](images/reproduce.png)

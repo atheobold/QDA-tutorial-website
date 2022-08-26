@@ -51,16 +51,15 @@ students <- full_join(studentA,
                       )
 ```
 
+![](images/forest.png){fig-align=center}
 
 In the next stage of coding, often called “pattern coding” [@miles], we group
 the descriptive codes made in the previous phase into a smaller number of
 categories or themes. Themes or categories "are broad units of information that
 consist of several codes aggregated to form a common idea" [@creswell p.194].
-These categories can be thought of as somewhat of a meta-code.*[*For quantitative researchers, this process can be thought of as an analog to cluster-oriented or factor-oriented approaches in statistical analysis.]{.aside}
-
-::: {.column-margin}
-![](images/forest.png)
-:::
+These categories can be thought of as somewhat of a meta-code.*[*For 
+quantitative researchers, this process can be thought of as an analog to
+cluster-oriented or factor-oriented approaches in statistical analysis.]{.aside}
 
 Categories should span multiple codes that were previously identified. These
 categories "capture some recurring pattern that cuts across your data" 
@@ -71,52 +70,55 @@ the trees.
 
 ## Discoving Themes
 
-As I looked over my descriptive codes, I asked myself what these codes tell me about 
-the nature of the data science skills students used in their projects. Some themes
-immediately jumped out at me, whereas others took a bit of time for me to mull over.
+As I looked over my descriptive codes, I asked myself what these codes tell me
+about the nature of the data science skills students used in their projects.
+Some themes immediately jumped out at me, whereas others took a bit of time to
+mull over. I'll walk you through my process below.
 
-The theme of "Data Model" was readily apparent from each student's code. Student A 
-used `lm()` to fit a variety of linear regressions, while student B used `nlm()` to
-minimize a previously defined function. 
+### "Obvious" Themes
 
-"Data Visualization" was another theme that jumped out at me. Both students created
-scatterplots, included different colored points, and a legend. 
+There were two themes I expected to see due to the nature of the project and 
+the requirements stipulated by the professor. For their project students were
+expected to (1) use an analysis strategy learned in the course and (2) create a
+visualization to accompany any analysis and resulting discussion. Thus, I 
+expected themes of "Data Model" and "Data Visualization" to emerge from the 
+data. 
+
+From my own experiences, I also expected that students would need to perform
+some aspect of "Data Wrangling" to prepare their data for analysis. The data
+students used for their project were from their own research, so, although I 
+knew data wrangling would play some role, I was unsure what type of tasks might
+appear in the codes.
+
+### Emergent Themes
+
+While I was looking over the data wrangling tasks students performed in their
+projects, I noticed the techniques used required knowledge of different data
+structures. The implementation of some tasks was fairly uniform (select column
+from dataframe using `$` operator), whereas other tasks were highly variable. 
+Data filtering was sometimes done with the `subset()` function, which requires
+little knowledge of data structures. However, other times this filtering was
+carried out using the `[]` / extraction operator, a technique that requires an
+understanding of how extraction differs across dataframes, matrices, and
+vectors.  
+
+I also noticed while looking at the R code for the "Data Model" and "Data
+Visualization" themes that certain statements included some knowledge (or lack
+thereof) regarding the "R Environment." The most obvious statement of code that
+evoked this theme used `with()` to temporarily attach a dataframe. There were,
+however, other statements that also fit into this theme, such as function
+arguments being bipassed, sourcing in an external R script, loading in datasets,
+and loading in packages. 
 
 
-### R Environment 
-
-::: {.column-margin}
-![](images/environment.png)
-:::
-
-```{r}
-students %>% 
-  filter(theme_note == "R environment") %>%
-  distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
-  datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
-            )
-```
-
-### Data Structures
-
-::: {.column-margin}
-![](images/structures.png)
-:::
-    
-```{r}
-students %>% 
-  filter(theme_note == "data structures") %>%
-  distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
-  datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
-            )
-```
-
+## Assigning Descriptive Codes to Themes
 
 ### Data Model 
+
+The theme of "Data Model" was readily apparent from each student's code. Student
+A used `lm()` to fit a variety of linear regressions, while student B used
+`nlm()` to minimize a previously defined function. 
+
 
 ::: {.column-margin}
 ![](images/data-model.png)
@@ -125,6 +127,26 @@ students %>%
 ```{r}
 students %>% 
   filter(theme_note == "data model") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code, notes) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
+            )
+```
+
+### Data Visualization
+
+"Data Visualization" was another theme that jumped out at me. Both student's
+analysis involved creating a scatterplots, included different colors for points,
+adding some type of line to the plot, and finishing with a legend. 
+
+::: {.column-margin}
+![](images/visualization.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "data visualization") %>%
   distinct(code, .keep_all = TRUE) %>% 
   select(code, descriptive_code) %>% 
   datatable(class = 'row-border stripe', 
@@ -148,18 +170,70 @@ students %>%
             )
 ```
 
-### Data Visualization
+### Data Structures
 
 ::: {.column-margin}
-![](images/visualization.png)
+![](images/structures.png)
 :::
-
+    
 ```{r}
 students %>% 
-  filter(theme_note == "data visualization") %>%
+  filter(theme_note == "data structures") %>%
   distinct(code, .keep_all = TRUE) %>% 
   select(code, descriptive_code) %>% 
   datatable(class = 'row-border stripe', 
             colnames = c("R Code", "Descriptive Code")
             )
 ```
+
+### R Environment 
+
+::: {.column-margin}
+![](images/environment.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "R environment") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code, notes) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
+            )
+```
+
+
+### Workflow
+
+::: {.column-margin}
+![](images/workflow.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note == "workflow") %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+
+```
+
+
+### Efficiency / Inefficiency
+
+::: {.column-margin}
+![](images/efficient.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note %in% c("inefficiency", "efficiency")) %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
+
