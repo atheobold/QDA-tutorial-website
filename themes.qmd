@@ -28,7 +28,7 @@ studentA <- read_xlsx(
                values_to = "notes"
                ) %>% 
   select(-theme, -note) %>% 
-  drop_na(theme_note, notes)
+  drop_na(theme_note)
 
 studentB <- read_xlsx(
   here::here("data", "code_book.xlsx"), 
@@ -43,7 +43,7 @@ studentB <- read_xlsx(
                values_to = "notes"
                ) %>% 
   select(-theme, -note) %>% 
-  drop_na(theme_note, notes)
+  drop_na(theme_note)
 
 students <- full_join(studentA, 
                       studentB, 
@@ -78,14 +78,14 @@ mull over. I'll walk you through my process below.
 ### "Obvious" Themes
 
 There were two themes I expected to see due to the nature of the project and 
-the requirements stipulated by the professor. For their project students were
+the requirements stipulated by the professor. For their project, students were
 expected to (1) use an analysis strategy learned in the course and (2) create a
 visualization to accompany any analysis and resulting discussion. Thus, I 
 expected themes of "Data Model" and "Data Visualization" to emerge from the 
 data. 
 
 From my own experiences, I also expected that students would need to perform
-some aspect of "Data Wrangling" to prepare their data for analysis. The data
+some aspect of *data wrangling* to prepare their data for analysis. The data
 students used for their project were from their own research, so, although I 
 knew data wrangling would play some role, I was unsure what type of tasks might
 appear in the codes.
@@ -93,40 +93,38 @@ appear in the codes.
 ### Emergent Themes
 
 While I was looking over the data wrangling tasks students performed in their
-projects, I noticed the techniques used required knowledge of different data
-structures. The implementation of some tasks was fairly uniform (select column
+projects, I noticed the techniques used required knowledge of different *data
+structures*. The implementation of some tasks was fairly uniform (select column
 from dataframe using `$` operator), whereas other tasks were highly variable. 
 Data filtering was sometimes done with the `subset()` function, which requires
-little knowledge of data structures. However, other times this filtering was
-carried out using the `[]` / extraction operator, a technique that requires an
-understanding of how extraction differs across dataframes, matrices, and
-vectors.  
+little explicit knowledge of data structures. However, other times this
+filtering was carried out using the `[]` / extraction operator, a technique
+which requires an understanding of how extraction differs across different 
+data structures (e.g., dataframes, matrices, vectors).  
 
 I also noticed while looking at the R code for the "Data Model" and "Data
-Visualization" themes that certain statements included some knowledge (or lack
-thereof) regarding the "R Environment." The most obvious statement of code that
+Visualization" themes that certain statements of code included some knowledge
+(or lack thereof) regarding the *R Environment*. The most obvious statement that
 evoked this theme used `with()` to temporarily attach a dataframe. There were,
 however, other statements that also fit into this theme, such as function
-arguments being bipassed, sourcing in an external R script, loading in datasets,
+arguments being bypassed, sourcing in an external R script, loading in datasets,
 and loading in packages. 
 
 Within the themes of "Data Model" and "Data Wrangling," I uncovered an
-additional theme which speaks to the "Efficiency" of a statement of code. The 
+additional theme which speaks to the *efficiency* of a statement of code. The 
 notion of efficiency came to me from the "don't repeat yourself" principle 
 [@greg], which recommends scientists modularize their code rather than
 copying and pasting and re-use their code instead of rewriting it (p. 2). Thus,
 I considered code which adhered to these practices "efficient" and code which
-did not "inefficient." 
+did not adhere to these practices "inefficient." 
 
-<!-- Add best practices to bib file! -->
-
-The final theme I discovered where statements whose purpose was more for a 
-student's "Workflow" than anything else. Code comments were my first indication
-of this theme, where students used code comments to create sections of code or
-flag what was happening in a particular line / lines of code. I expanded this 
-theme to include statements of code which inspect some characteristic of an
-object (e.g., structure of a datafame, names of a dataframe, summary of a linear
-model). 
+The final theme I discovered were statements of code whose purpose was more for
+a student's *workflow* than anything else. Code comments were my first
+indication of this theme, where students used code comments to create sections
+of code or flag what was happening in a particular line / lines of code. I
+expanded this theme to include statements of code which inspect some
+characteristic of an object (e.g., structure of a datafame, names of a
+dataframe, summary of a linear model). 
 
 
 ## Assigning Descriptive Codes to Themes
@@ -136,9 +134,16 @@ model).
 
 For each of the themes outlined above, the associated "atoms" / statements of
 code are listed. Keep in mind one statement can apply to two themes! For 
-example, the code `timeD <- timeD[!is.na(obsD)]` applies to both the themes of
-"Data Wrangling"---filtering values---and "Data Structures"---extracting
-elements of a vector with `[]`. 
+example, the code 
+
+```linearAnterior <- lm(PADataNoOutlier$Lipid ~ PADataNoOutlier$PSUA)```
+
+applies to three themes. First and foremost, this code uses `lm()` to fit a 
+linear regression model to the data (*data model*). Second, in order to fit the 
+data model, the student uses *data wrangling* to select the variables of
+interest(`PADataNoOutlier$Lipid`, `PADataNoOutlier$PSUA`). Finally, this code
+**does not** make use of the `data = ` argument built in to `lm()`, which
+implies a lack of understanding of the function and thus the *R environment*. 
 
 ### Data Model 
 
@@ -146,9 +151,8 @@ elements of a vector with `[]`.
 ![](images/data-model.png)
 :::
 
-The theme of "Data Model" was readily apparent from each student's code. Student
-A used `lm()` to fit a variety of linear regressions, while student B used
-`nlm()` to minimize a previously defined function. 
+*Definition*: Statements of code whose purpose is to create a statistical model
+from data. 
 
 ```{r}
 students %>% 
@@ -166,17 +170,25 @@ students %>%
 ![](images/visualization.png)
 :::
 
-"Data Visualization" was another theme that jumped out at me. Both student's
-analysis involved creating a scatterplots, included different colors for points,
-adding some type of line to the plot, and finishing with a legend. 
+*Definition*: Statements of code whose purpose is to visualize relationships
+between variables
+
+**Sub-themes**
+
+- scatterplot
+- adding lines to plot
+- differentiated colors
+- including a legend
+- changing plotting environment
+- modifying axis labels / plot titles
 
 ```{r}
 students %>% 
   filter(theme_note == "data visualization") %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, notes) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
             )
 ```
 
@@ -186,13 +198,24 @@ students %>%
 ![](images/wrangle.png)
 :::
 
+*Definition:* Statements of code whose purpose is to prepare a dataset for
+analysis and / or visualization
+
+**Sub-themes**
+
+- selecting columns
+- filtering rows / observations
+- mutating variables
+- summarizing variables
+- summarizing variables across groups
+
 ```{r}
 students %>% 
   filter(theme_note == "data wrangling") %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, notes) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
             )
 ```
 
@@ -201,14 +224,17 @@ students %>%
 ::: {.column-margin}
 ![](images/structures.png)
 :::
+
+*Definition:* An statement of code which explicitly calls upon attributes of a
+data structure (e.g., dataframe, matrix, vector)
     
 ```{r}
 students %>% 
   filter(theme_note == "data structures") %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, notes) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
             )
 ```
 
@@ -217,6 +243,9 @@ students %>%
 ::: {.column-margin}
 ![](images/environment.png)
 :::
+
+*Definition:* A statement of code which calls on explicit aspects of the R
+environment
 
 ```{r}
 students %>% 
@@ -234,13 +263,16 @@ students %>%
 ![](images/efficient.png)
 :::
 
+*Definition:* A statement of code which adheres to the "don't repeat yourself"
+principle
+
 ```{r}
 students %>% 
   filter(theme_note %in% c("inefficiency", "efficiency")) %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, notes) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
             )
 ```
 
@@ -250,13 +282,16 @@ students %>%
 ![](images/workflow.png)
 :::
 
+*Definition:* A statement of code which facilitates a smooth execution of a
+working process
+
 ```{r}
 students %>% 
   filter(theme_note == "workflow") %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, notes) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Additional Notes")
             )
 
 ```
