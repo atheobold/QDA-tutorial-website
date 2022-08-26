@@ -27,6 +27,7 @@ studentA <- read_xlsx(
                names_to = "note", 
                values_to = "notes"
                ) %>% 
+  mutate(student = "student A") %>% 
   select(-theme, -note) %>% 
   drop_na(theme_note, notes)
 
@@ -42,12 +43,17 @@ studentB <- read_xlsx(
                names_to = "note", 
                values_to = "notes"
                ) %>% 
+  mutate(student = "student B") %>% 
   select(-theme, -note) %>% 
   drop_na(theme_note, notes)
 
 students <- full_join(studentA, 
                       studentB, 
-                      by = c("code", "descriptive_code", "theme_note", "notes")
+                      by = c("code", 
+                             "descriptive_code",
+                             "theme_note",
+                             "notes",
+                             "student")
                       )
 ```
 
@@ -64,9 +70,9 @@ students <- full_join(studentA,
 students %>% 
   filter(theme_note == "workflow") %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, student) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Student")
             )
 
 ```
@@ -84,9 +90,9 @@ students %>%
 students %>% 
   filter(theme_note %in% c("inefficiency", "efficiency")) %>%
   distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
+  select(code, descriptive_code, student) %>% 
   datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
+            colnames = c("R Code", "Descriptive Code", "Student")
             )
 ```
 
