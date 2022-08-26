@@ -8,6 +8,49 @@ execute:
   echo: false
 ---
 
+```{r}
+#| include: false
+
+library(readxl)
+library(DT)
+library(tidyverse)
+
+studentA <- read_xlsx(
+  here::here("data", "code_book.xlsx"), 
+  sheet = "studentA"
+  ) %>% 
+  pivot_longer(cols = starts_with("theme"),
+               names_to = "theme", 
+               values_to = "theme_note"
+              ) %>% 
+  pivot_longer(cols = starts_with("note"), 
+               names_to = "note", 
+               values_to = "notes"
+               ) %>% 
+  select(-theme, -note) %>% 
+  drop_na(theme_note, notes)
+
+studentB <- read_xlsx(
+  here::here("data", "code_book.xlsx"), 
+  sheet = "studentB"
+  ) %>% 
+  pivot_longer(cols = starts_with("theme"),
+               names_to = "theme", 
+               values_to = "theme_note"
+              ) %>% 
+  pivot_longer(cols = starts_with("note"), 
+               names_to = "note", 
+               values_to = "notes"
+               ) %>% 
+  select(-theme, -note) %>% 
+  drop_na(theme_note, notes)
+
+students <- full_join(studentA, 
+                      studentB, 
+                      by = c("code", "descriptive_code", "theme_note", "notes")
+                      )
+```
+
 ### Workflow
 
 <!-- How code comments were used between the two students -->
