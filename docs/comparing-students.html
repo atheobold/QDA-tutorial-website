@@ -61,6 +61,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -172,24 +182,48 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="workflow" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="workflow">Workflow</h3>
+<!-- How code comments were used between the two students -->
+<!-- How objects were inspected in the code vs. in the console -->
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/workflow.png" class="img-fluid"></p>
-</div></div></section>
+</div></div><div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-1111b15aa297d29aa986" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1111b15aa297d29aa986">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],["#upper anterior measurement Linear model","str(PADataNoOutlier)","str(PADataNoOutlierMultMeasure)","names(RPMA2Growth)","summary(linearAnterior)","linearAnterior","#Exponential function","summary (expAnterior)","expAnterior","summary(expAnterior)","source(\"./Gas_Functions.R\")","# Load data ####","load(\"***REDACTED***/gas\")","load(\"***REDACTED***/carboys\")"],["code comment","inspect data","inspect data","inspect data","views summary of lm object","inspects lm object","code comment","views summary of lm object","inspects lm object","views summary of lm object","loading functions written in another R script","code comment","loading data, specifying full path to access data","loading data, specifying full path to access data"],["student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student B","student B","student B","student B"]],"container":"<table class=\"row-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>R Code<\/th>\n      <th>Descriptive Code<\/th>\n      <th>Student<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
 <section id="efficiency-inefficiency" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="efficiency-inefficiency">Efficiency / Inefficiency</h3>
+<!-- Repeated tasks differences between students -->
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/efficient.png" class="img-fluid"></p>
-</div></div></section>
+</div></div><div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-5f89d807f072b7a33bf2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5f89d807f072b7a33bf2">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"],["EarlyWeightAge &lt;- ddply(Early, ~Age, summarise, meanWE=mean(Weight, na.rm = T))","EarlyLengthAge &lt;- ddply(Early, ~Age, summarise, meanLE = mean(ForkLength, na.rm = T))","MidLengthAge &lt;- ddply(Mid, ~Age, summarise, meanLM = mean(ForkLength, na.rm = T))","WeightChange &lt;- rep(NA, 9)","library(plyr)","Weight1 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1], na.rm = TRUE)","Length1 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 1], na.rm  = TRUE)","Weight2 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 2], na.rm = TRUE)","Length2 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 2], na.rm  = TRUE)","Weight3 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 3], na.rm = TRUE)","Length3 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 3], na.rm  = TRUE)","Weight4 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 4], na.rm = TRUE)","Length4 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 4], na.rm  = TRUE)","Weight5 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 5], na.rm = TRUE)","Length5 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 5], na.rm  = TRUE)","Weight6 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 6], na.rm = TRUE)","Length6 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 6], na.rm  = TRUE)","Weight7 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 7], na.rm = TRUE)","Length7 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 7], na.rm  = TRUE)","Weight8 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 8], na.rm = TRUE)","Length8 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 8], na.rm  = TRUE)","Weight9 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 9], na.rm = TRUE)","Length9 &lt;- mean(RPMA2GrowthSub$ForkLength[RPMA2GrowthSub$Age == 9], na.rm  = TRUE)","source(\"./Gas_Functions.R\")","likelihoods &lt;- apply(X = pMat, MARGIN = 1, FUN = nmle, t = timeD,  y = obsD, N15_NO3_O = fracDenD*(N15_NO3_O_D))"],["data summary (mean) or variable by groups of another variable, create a new dataframe","data summary (mean) or variable by groups of another variable, create a new dataframe","data summary (mean) or variable by groups of another variable, create a new dataframe","create variable","load package","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","select column with $, filter rows using [] and relational statement (==), calculate data summary","loading functions written in another R script","creating a new dataframe, applying function over rows of existing dataframe, declare additional function arguments, name all arguments  "],["student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student A","student B","student B"]],"container":"<table class=\"row-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>R Code<\/th>\n      <th>Descriptive Code<\/th>\n      <th>Student<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
 <section id="readability" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="readability">Readability</h3>
+<!-- Use of whitespace around delimiters, named arguments, new lines for long code  -->
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/read.png" class="img-fluid"></p>
 </div></div></section>
 <section id="reproducibility" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="reproducibility">Reproducibility</h3>
+<!-- No data loading code in Student A -->
+<!-- Student A had code that wouldn't run (required a package be loaded but wasn't until later, reference to non-existant objects) -->
+<!-- Student B had all used functions / data sourced in to R script -->
+<!-- Still, the project would be difficult to share as there was a mix of full paths -->
+<!-- and relative paths which another user would need to modify -->
+<!-- Keep in mind RStudio projects were not a thing when these students were completing their project -->
 
 
 
