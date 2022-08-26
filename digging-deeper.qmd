@@ -1,3 +1,23 @@
 ---
 title: "Step 4: Digging Deeper"
+page-layout: full
+reference-location: margin
+citation-location: margin
+bibliography: ref-1.bib
+execute: 
+  echo: false
 ---
+
+## Student A
+
+::: {.column-margin}
+![](images/alicia.png)
+:::
+
+
+## Student B 
+
+::: {.column-margin}
+![](images/ellie.png)
+:::
+
