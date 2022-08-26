@@ -110,19 +110,45 @@ however, other statements that also fit into this theme, such as function
 arguments being bipassed, sourcing in an external R script, loading in datasets,
 and loading in packages. 
 
+Within the themes of "Data Model" and "Data Wrangling," I uncovered an
+additional theme which speaks to the "Efficiency" of a statement of code. The 
+notion of efficiency came to me from the "don't repeat yourself" principle 
+[@greg], which recommends scientists modularize their code rather than
+copying and pasting and re-use their code instead of rewriting it (p. 2). Thus,
+I considered code which adhered to these practices "efficient" and code which
+did not "inefficient." 
+
+<!-- Add best practices to bib file! -->
+
+The final theme I discovered where statements whose purpose was more for a 
+student's "Workflow" than anything else. Code comments were my first indication
+of this theme, where students used code comments to create sections of code or
+flag what was happening in a particular line / lines of code. I expanded this 
+theme to include statements of code which inspect some characteristic of an
+object (e.g., structure of a datafame, names of a dataframe, summary of a linear
+model). 
+
 
 ## Assigning Descriptive Codes to Themes
 
+<!-- Make notes for every statement indicating what aspect of the code was assigned to -->
+<!-- the theme.  -->
+
+For each of the themes outlined above, the associated "atoms" / statements of
+code are listed. Keep in mind one statement can apply to two themes! For 
+example, the code `timeD <- timeD[!is.na(obsD)]` applies to both the themes of
+"Data Wrangling"---filtering values---and "Data Structures"---extracting
+elements of a vector with `[]`. 
+
 ### Data Model 
-
-The theme of "Data Model" was readily apparent from each student's code. Student
-A used `lm()` to fit a variety of linear regressions, while student B used
-`nlm()` to minimize a previously defined function. 
-
 
 ::: {.column-margin}
 ![](images/data-model.png)
 :::
+
+The theme of "Data Model" was readily apparent from each student's code. Student
+A used `lm()` to fit a variety of linear regressions, while student B used
+`nlm()` to minimize a previously defined function. 
 
 ```{r}
 students %>% 
@@ -136,13 +162,13 @@ students %>%
 
 ### Data Visualization
 
-"Data Visualization" was another theme that jumped out at me. Both student's
-analysis involved creating a scatterplots, included different colors for points,
-adding some type of line to the plot, and finishing with a legend. 
-
 ::: {.column-margin}
 ![](images/visualization.png)
 :::
+
+"Data Visualization" was another theme that jumped out at me. Both student's
+analysis involved creating a scatterplots, included different colors for points,
+adding some type of line to the plot, and finishing with a legend. 
 
 ```{r}
 students %>% 
@@ -202,6 +228,21 @@ students %>%
             )
 ```
 
+### Efficiency / Inefficiency
+
+::: {.column-margin}
+![](images/efficient.png)
+:::
+
+```{r}
+students %>% 
+  filter(theme_note %in% c("inefficiency", "efficiency")) %>%
+  distinct(code, .keep_all = TRUE) %>% 
+  select(code, descriptive_code) %>% 
+  datatable(class = 'row-border stripe', 
+            colnames = c("R Code", "Descriptive Code")
+            )
+```
 
 ### Workflow
 
@@ -219,21 +260,3 @@ students %>%
             )
 
 ```
-
-
-### Efficiency / Inefficiency
-
-::: {.column-margin}
-![](images/efficient.png)
-:::
-
-```{r}
-students %>% 
-  filter(theme_note %in% c("inefficiency", "efficiency")) %>%
-  distinct(code, .keep_all = TRUE) %>% 
-  select(code, descriptive_code) %>% 
-  datatable(class = 'row-border stripe', 
-            colnames = c("R Code", "Descriptive Code")
-            )
-```
-
