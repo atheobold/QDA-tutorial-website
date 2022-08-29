@@ -119,3 +119,9 @@ students %>%
 ::: {.column-margin}
 ![](images/reproduce.png)
 :::
+
+### Data Visualization
+
+<!-- They both rotate their y-axis labels -- artifact of instruction -->
+A: So, the code that you found on the internet, did it have this format? Like, with the data, plot y ~ x? And then this piece, but this piece is different. It’s not, like not, most people don’t use that piece.  
+M: Oh, that’s a Kezia piece. 
