@@ -154,6 +154,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#workflow-1" id="toc-workflow-1" class="nav-link" data-scroll-target="#workflow-1">Workflow</a></li>
   <li><a href="#efficiency" id="toc-efficiency" class="nav-link" data-scroll-target="#efficiency">Efficiency</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/atheobold/QDA-tutorial-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -185,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/alicia.png" class="img-fluid"></p>
-</div></div><p>The spring of 2018 was Student A’s first semester as a graduate student, pursuing a master’s degree in Fisheries and Wildlife Management. She had completed a Bachelors in Ecology at a medium sized research university in the western United States. Student A had minimal programming experiences during her bachelor’s degree, with experiences stemming through three main outlets. Helping a postdoc in her lab analyze data from a lab trip exposed her to R, completing the Calculus series for engineers exposed her to MatLab, and enrolling in an information technology course exposed her to Python and Java. In her first semester as a graduate student, Student A enrolled in GLAS, at the recommendation of her adviser.</p>
+</div></div><p>The spring of 2018 was Student A’s first semester as a graduate student, pursuing a master’s degree in Fisheries and Wildlife Management. Student A identified as a Hispanic woman. She had completed a Bachelors in Ecology at a medium sized research university in the western United States. Student A had minimal programming experiences during her bachelor’s degree, with experiences stemming through three main outlets. Helping a postdoc in her lab analyze data from a lab trip exposed her to R, completing the Calculus series for engineers exposed her to MatLab, and enrolling in an information technology course exposed her to Python and Java. In her first semester as a graduate student, Student A enrolled in GLAS, at the recommendation of her adviser.</p>
 <section id="workflow" class="level3">
 <h3 class="anchored" data-anchor-id="workflow">Workflow</h3>
 <p>Something I noticed initially when reading through Student A’s R script was the absence of any code importing the dataset(s) used throughout their analysis. Thus, I asked Student A about their process of importing their data into R:</p>
@@ -221,14 +222,30 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/ellie.png" class="img-fluid"></p>
-</div></div><p>The spring of 2018 was Student B’s second semester as a graduate student, pursuing an interdisciplinary doctorate in Ecology and Environmental Sciences. Student B had completed a bachelor’s degree in engineering at a medium sized research university in the Midwestern United States. During her undergraduate degree, Student B’s coursework entailed extensive programming experiences in MatLab, multiple courses in GIS. Student B also had experiences working with relational databases using Access through a post-baccalaureate internship. During her first semester, Student B completed the “R programming” module in <strong>swirl</strong>, at the recommendation of her adviser, due to the extensive amount of computational work done in their lab. In her second semester, Student B enrolled in GLAS I, at the recommendation of her adviser.</p>
-<section id="workflow-1" class="level3">
+</div></div><p>The spring of 2018 was Student B’s second semester as a graduate student, pursuing an interdisciplinary doctorate in Ecology and Environmental Sciences. Student B identified as White and a woman. She had completed a bachelor’s degree in engineering at a medium sized research university in the Midwestern United States. During her undergraduate degree, Student B’s coursework entailed extensive programming experiences in MatLab, multiple courses in GIS. Student B also had experiences working with relational databases using Access through a post-baccalaureate internship. During her first semester, Student B completed the “R programming” module in <strong>swirl</strong>, at the recommendation of her adviser, due to the extensive amount of computational work done in their lab. In her second semester, Student B enrolled in GLAS I, at the recommendation of her adviser.</p>
+<section id="workflow-1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="workflow-1">Workflow</h3>
-<p>B: So, these are just like utility functions that are more generic that could be used for different kinds of analysis</p>
+<div class="page-columns page-full"><p>Reading through Student B’s code, I noticed straight away that she had a robust workflow for carrying out analysis. First, cleaning her workspace (<code>rm(list = ls())</code>)*, then sourcing in functions from an external R script. As the GLAS course did not teach this type of process, I asked Student B for additional details about these statements of code:</p><div class="no-row-height column-margin column-container"><span class="aside">*Jenny Bryan has some great advice on why not to use <code>setwd()</code> and <code>rm(list = ls())</code> at the top of R scripts <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script">here</a>.</span></div></div>
+<p><strong>Allison</strong>: “What is the purpose of the first line of your R script?”</p>
+<p><strong>Student B</strong>: “That clears the work space. That’s something you see in a lot of people’s R code.”</p>
+<p><strong>Allison</strong>: “What is the nature of this file you are sourcing in?”</p>
+<p><strong>Student B</strong>: “So, these are just like utility functions that are more generic that could be used for different kinds of analysis.”</p>
+<div class="page-columns page-full"><p>This conversation led me to believe that Student B understands the importance of not repeating yourself by reusing code she has already written. However, in terms of workflow, there still existed some problematic elements of Student A’s code. The mix of full paths and relative paths would make it rather difficult to share this script with another person.**</p><div class="no-row-height column-margin column-container"><span class="aside">**It is important to note that RStudio projects did not exist when these students were completing their project.</span></div></div>
 </section>
 <section id="efficiency" class="level3">
 <h3 class="anchored" data-anchor-id="efficiency">Efficiency</h3>
-<p>L: Well, I was an engineering undergrad, so I had some Matlab and I remember we had to take an Intro to Matlab class freshman year and I remember being so frustrated during that class. It just didn’t make sense, like this coding stuff there is a jargon associated with it and I was just like…and I don’t think that it was taught very well. But still I just remember being really frustrated and towards the end kinda getting it. And then I had to use Matlab not like a ton, but a little bit throughout my undergrad, so I got some practice writing functions and for-loops. But I didn’t necessarily start to think about, and this is a bad example of it, but I didn’t start to think about optimizing my code or I didn’t even know what object-oriented programming was until I started working with Geoff.</p>
+<p>I was also intrigued by Student A’s use of <code>apply()</code> to calculate the likelihood across a matrix of possible values, as this repeated process was not explicitly taught in the GLAS course. Through my conversation with Student B, it became clear that their previous programming experiences during their undergrad opened the door for them to begin thinking about “optimizing” their code:</p>
+<p><strong>Student B</strong>: “Well, I was an engineering undergrad, so I had some Matlab and I remember we had to take an Intro to Matlab class freshman year and I remember being so frustrated during that class. It just didn’t make sense, like this coding stuff there is a jargon associated with it. I just remember being really frustrated and towards the end kinda getting it. And then I had to use Matlab not like a ton, but a little bit throughout my undergrad, so I got some practice writing functions and for-loops. But I didn’t necessarily start to think about, and this is a bad example of it, but I didn’t start to think about optimizing my code or I didn’t even know what object-oriented programming was until I started working with [my advisor].”</p>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<p>I had also noticed that throughout Student B’s code she used a variety of methods for filtering data, not sticking with one method for every instance. Sometimes Student B would use some combination of relational and / or logical statements and bracketing to filter observations:</p>
+<p><code>gas &lt;- gas[!(substr(gas$sampleID,3,3) %in% c("b","c")), ]</code></p>
+<p>Other times, Student B would use the <code>subset()</code> function:</p>
+<p><code>timeD &lt;- (subset(gas, gas$carboy == "D"))$days</code></p>
+<p>And sometimes, Student B would combine both bracketing and <code>subset()</code> in the same statement:</p>
+<p><code>N15_NO3_O_D &lt;- 40*((carboys[carboys$CarboyID == "D",]$EstN15NO3) + (0.7*RstN/(1 +RstN)))/(subset(gas, gas$carboy == "D")$Ar[1])</code></p>
+<p>When I discussed these different methods with Student B, they were seemingly unphased about using different data filtering methods throughout their code. Moreover, she provided sophisticated descriptions of how each data filtering process was carried out by R. Seemingly, Student B’s prior programming experiences allowed her to access a more robust understanding of R, making her more agile at using a variety of methods to filter observations and select variables.</p>
 
 
 </section>
