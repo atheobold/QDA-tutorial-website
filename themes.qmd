@@ -129,9 +129,6 @@ dataframe, summary of a linear model).
 
 ## Assigning Descriptive Codes to Themes
 
-<!-- Make notes for every statement indicating what aspect of the code was assigned to -->
-<!-- the theme.  -->
-
 For each of the themes outlined above, the associated "atoms" / statements of
 code are listed. Keep in mind one statement can apply to two themes! For 
 example, the code 
