@@ -115,14 +115,14 @@ appear in the codes.
 ### Emergent Themes
 
 While I was looking over the data wrangling tasks students performed in their
-projects, I noticed the techniques used required knowledge of different *data
-structures*. The implementation of some tasks was fairly uniform (select column
-from dataframe using `$` operator), whereas other tasks were highly variable. 
-Data filtering was sometimes done with the `subset()` function, which requires
-little explicit knowledge of data structures. However, other times this
-filtering was carried out using the `[]` / extraction operator, a technique
-which requires an understanding of how extraction differs across different 
-data structures (e.g., dataframes, matrices, vectors).  
+projects, I noticed the techniques called upon specific attributes of different
+*data structures* (e.g., dataframe, vector, matrix). The implementation of some
+tasks was fairly uniform (select variable from dataframe using `$` operator),
+whereas other tasks were highly variable. Data filtering was sometimes done with
+the `subset()` function, which requires little explicit knowledge of data
+structures. However, other times this filtering was carried out using the
+`[]` / extraction operator, a technique which requires an understanding of how
+extraction differs across different data structures. 
 
 I also noticed while looking at the R code for the "Data Model" and "Data
 Visualization" themes that certain statements of code included some knowledge
@@ -222,11 +222,10 @@ analysis and / or visualization
 
 **Sub-themes**
 
-- selecting columns
-- filtering rows / observations
+- selecting variables
+- filtering observations
 - mutating variables
-- summarizing variables
-- summarizing variables across groups
+
 
 ```{r}
 students %>% 
