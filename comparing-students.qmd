@@ -19,33 +19,54 @@ studentA <- read_xlsx(
   here::here("data", "code_book.xlsx"), 
   sheet = "studentA"
   ) %>% 
-  pivot_longer(cols = starts_with("theme"),
-               names_to = "theme", 
-               values_to = "theme_note"
-              ) %>% 
   pivot_longer(cols = starts_with("note"), 
                names_to = "note", 
                values_to = "notes"
                ) %>% 
-  mutate(student = "student A") %>% 
-  select(-theme, -note) %>% 
-  drop_na(theme_note, notes)
+  drop_na(notes) %>% 
+  pivot_longer(cols = starts_with("theme"),
+               names_to = "theme", 
+               values_to = "theme_note"
+              ) %>% 
+  drop_na(theme_note) %>% 
+  mutate(notes = 
+           case_when(
+             note == "note1" & theme == "theme1" ~ notes, 
+             note == "note2" & theme == "theme2" ~ notes,
+             note == "note3" & theme == "theme3" ~ notes,
+             note == "note4" & theme == "theme4" ~ notes
+           )
+         ) %>% 
+  drop_na(notes) %>% 
+  select(code, descriptive_code, theme_note, notes) %>% 
+  mutate(student = "studentA")
+
 
 studentB <- read_xlsx(
   here::here("data", "code_book.xlsx"), 
   sheet = "studentB"
   ) %>% 
-  pivot_longer(cols = starts_with("theme"),
-               names_to = "theme", 
-               values_to = "theme_note"
-              ) %>% 
   pivot_longer(cols = starts_with("note"), 
                names_to = "note", 
                values_to = "notes"
                ) %>% 
-  mutate(student = "student B") %>% 
-  select(-theme, -note) %>% 
-  drop_na(theme_note, notes)
+  drop_na(notes) %>% 
+  pivot_longer(cols = starts_with("theme"),
+               names_to = "theme", 
+               values_to = "theme_note"
+              ) %>% 
+  drop_na(theme_note) %>% 
+  mutate(notes = 
+           case_when(
+             note == "note1" & theme == "theme1" ~ notes, 
+             note == "note2" & theme == "theme2" ~ notes,
+             note == "note3" & theme == "theme3" ~ notes,
+             note == "note4" & theme == "theme4" ~ notes
+           )
+         ) %>% 
+  drop_na(notes) %>% 
+  select(code, descriptive_code, theme_note, notes) %>% 
+  mutate(student = "studentA")
 
 students <- full_join(studentA, 
                       studentB, 
