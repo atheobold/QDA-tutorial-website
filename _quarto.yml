@@ -30,16 +30,19 @@ website:
          file: bio.qmd
 
   sidebar:
-    - title: Step-by-Step Guide
-      style: "docked"
-      background: light
-      contents:
+    #logo: "images/code.png"
+    pinned: true
+    align: center
+    title: Step-by-Step Guide
+    style: "docked"
+    background: light
+    contents:
       - analysis-framework.qmd
       - descriptive-codes.qmd
       - themes.qmd
       - comparing-students.qmd
       - digging-deeper.qmd
-  
+    
   page-navigation: true
 
 format:
