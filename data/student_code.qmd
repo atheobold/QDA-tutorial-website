@@ -7,14 +7,12 @@ editor: visual
 ### Student A
 
     #upper anterior measurement Linear model
-    str(PADataNoOutlier)
-    str(PADataNoOutlierMultMeasure)
-    names(RPMA2Growth)
     linearAnterior <- lm(PADataNoOutlier$Lipid ~ PADataNoOutlier$PSUA)
     summary(linearAnterior)
     linearAnterior
     with(PADataNoOutlier, plot(Lipid ~ PSUA, las = 1, col = ifelse(PADataNoOutlier$`Fork Length` <  280, "red", "black")))
     abline(linearAnterior)
+    plot(linearAnterior)
 
     #Exponential function
     expAnterior <- lm(PADataNoOutlier$Lipid ~ log(PADataNoOutlier$PSUA))
@@ -23,6 +21,7 @@ editor: visual
     with(PADataNoOutlier, plot(Lipid ~ log(PSUA), las = 1, 
          col = ifelse(PADataNoOutlier$`Fork Length` <  260, "red", "black")))
     abline(expAnterior)
+    plot(expAnterior)
     summary(expAnterior)
 
     early <- subset(RPMA2Growth, StockYear < 2006)
