@@ -36,9 +36,9 @@ Theobold, A. (2021). Oral Exams: A More Meaningful Assessment of Statistical Und
 
 Theobold, A. S. & Williams, D. A. (2021). Discourse Patterns in a Small Group "Collaboration": The Case of Uma and Sean. In Karunakaran, S. S. & Higgins, A. (Eds.), 2021 Research in Undergraduate Mathematics Education Reports (pp. 324-331).
 
-Theobold, A.}, Hancock, S., & Mannheimer, S. (2021). Designing Data Science Workshops for Data-Intensive Environmental Science Research}, *Journal of Statistics Education*, 29(sup1), S83-S94.
+Theobold, A., Hancock, S., & Mannheimer, S. (2021). Designing Data Science Workshops for Data-Intensive Environmental Science Research, *Journal of Statistics Education*, 29(sup1), S83-S94.
 
-Theobold, A. and Hancock, S. (2019). How Environmental Science Graduate Students Acquire Statistical Computing Skills}, *Statistics Education Research Journal*, 18(2), 68-85.
+Theobold, A. and Hancock, S. (2019). How Environmental Science Graduate Students Acquire Statistical Computing Skills, *Statistics Education Research Journal*, 18(2), 68-85.
 
 ![](images/yosemite.jpg)
 
