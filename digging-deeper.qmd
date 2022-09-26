@@ -219,16 +219,24 @@ methods for filtering data, not sticking with one method for every instance.
 Sometimes Student B would use some combination of relational and / or logical
 statements and bracketing to filter observations: 
 
-```gas <- gas[!(substr(gas$sampleID,3,3) %in% c("b","c")), ]```
+```{r}
+#| eval: false
+gas <- gas[!(substr(gas$sampleID,3,3) %in% c("b","c")), ]
+```
 
 Other times, Student B would use the `subset()` function:
 
-```timeD <- (subset(gas, gas$carboy == "D"))$days```
-
+```{r}
+#| eval: false
+timeD <- (subset(gas, gas$carboy == "D"))$days```
+```
 And sometimes, Student B would combine both bracketing and `subset()` in the 
 same statement:
 
-```N15_NO3_O_D <- 40*((carboys[carboys$CarboyID == "D",]$EstN15NO3) + (0.7*RstN/(1 +RstN)))/(subset(gas, gas$carboy == "D")$Ar[1])```
+```{r}
+#| eval: false
+N15_NO3_O_D <- 40*((carboys[carboys$CarboyID == "D",]$EstN15NO3) + (0.7*RstN/(1 +RstN)))/(subset(gas, gas$carboy == "D")$Ar[1])
+```
 
 When I discussed these different methods with Student B, they were seemingly 
 unphased about using different data filtering methods throughout their code. 

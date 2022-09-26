@@ -239,11 +239,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-wrangling" class="level3">
 <h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
 <p>I had also noticed that throughout Student B’s code she used a variety of methods for filtering data, not sticking with one method for every instance. Sometimes Student B would use some combination of relational and / or logical statements and bracketing to filter observations:</p>
-<p><code>gas &lt;- gas[!(substr(gas$sampleID,3,3) %in% c("b","c")), ]</code></p>
+<div class="cell">
+
+</div>
 <p>Other times, Student B would use the <code>subset()</code> function:</p>
-<p><code>timeD &lt;- (subset(gas, gas$carboy == "D"))$days</code></p>
+<div class="cell">
+
+</div>
 <p>And sometimes, Student B would combine both bracketing and <code>subset()</code> in the same statement:</p>
-<p><code>N15_NO3_O_D &lt;- 40*((carboys[carboys$CarboyID == "D",]$EstN15NO3) + (0.7*RstN/(1 +RstN)))/(subset(gas, gas$carboy == "D")$Ar[1])</code></p>
+<div class="cell">
+
+</div>
 <p>When I discussed these different methods with Student B, they were seemingly unphased about using different data filtering methods throughout their code. Moreover, she provided sophisticated descriptions of how each data filtering process was carried out by R. Seemingly, Student B’s prior programming experiences allowed her to access a more robust understanding of R, making her more agile at using a variety of methods to filter observations and select variables.</p>
 
 

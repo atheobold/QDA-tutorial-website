@@ -39,7 +39,7 @@ For this research, I chose to use descriptive codes as I sought to *describe* th
 ## Student A -- Descriptive Codes
 
 If you are interested in seeing the original R script file from Student A, 
-you can find that [here](). 
+you can find that [here](data/student_code.pdf). 
 
 ```{r}
 #| echo: false
@@ -57,7 +57,7 @@ studentA %>%
 ## Student B -- Descriptive Codes
 
 If you are interested in seeing the original R script file from Student A, 
-you can find that [here](). 
+you can find that [here](data/student_code.pdf). 
 
 
 ```{r}
