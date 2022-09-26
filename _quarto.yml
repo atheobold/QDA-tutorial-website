@@ -2,7 +2,6 @@ project:
   type: website
   title: "QDA for Computing Code"
   execute-dir: project
-  output-dir: docs
   render: 
       - index.qmd
       - blog.qmd
@@ -17,7 +16,7 @@ project:
 
 website:
   title: "A Guide to Qualitatively Analyzing Computing Code"
-  # site-url: https://crsl4.github.io/julia-workshop
+  #site-url: https://crsl4.github.io/julia-workshop
   repo-url: https://github.com/atheobold/QDA-tutorial-website
   repo-actions: [issue]
   navbar:
