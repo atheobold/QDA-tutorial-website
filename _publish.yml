@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 1410d07a-afbb-4bcc-a731-c44966715ed6
+      url: 'https://gorgeous-madeleine-76ea87.netlify.app'
