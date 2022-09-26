@@ -1,0 +1,14 @@
+{
+  "hash": "0b266ffc0c019f93e785914b4c9df7e1",
+  "result": {
+    "markdown": "---\ntitle: \"A Guide to Qualitatively Analyzing Computing Code\"\npage-layout: full\n---\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](images/paper_process.png){fig-align='center' width=584}\n:::\n:::\n\n\n# Welcome!\n\nMy intention for this website is to provide a step-by-step resource for how one\nqualitatively analyzes computing code, so you (!) can draw on this work to\nresearch the teaching and learning of data science in new ways. Qualitative\ncoding in data science is a building block that can lead to more extensive\nresearch going forward including conceptualize student learning and\ngrowth and understanding learning environments that promote growth. \n\n## Structure of Tutorial\n\nThe pages of this website correspond to different aspects of the analysis\nprocess as pictured above. \n\n1. I discuss how one selects a unit of analysis\n2. I outline how descriptive codes are created\n3. I walk through how codes can be collapsed into emergent themes\n4. I describe how student interviews allowed me to dig deeper into the themes\nthat emerged\n5. I talk through how to make comparisons across individual's themes\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

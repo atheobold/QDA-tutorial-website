@@ -54,3 +54,6 @@ format:
     toc: true
 
 callout-appearance: simple
+
+execute:
+  freeze: auto
