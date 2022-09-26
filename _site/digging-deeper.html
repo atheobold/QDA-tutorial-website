@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.120">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>A Guide to Qualitatively Analyzing Computing Code - Step 4: Digging Deeper</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./comparing-students.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">A Guide to Qualitatively Analyzing Computing Code</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Step-by-Step Guide</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./bio.html">About</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Step 4: Digging Deeper</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis-framework.html" class="sidebar-item-text sidebar-link">Step 1: Selecting a Unit of Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive-codes.html" class="sidebar-item-text sidebar-link">Step 2: Descriptive Codes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./themes.html" class="sidebar-item-text sidebar-link">Step 3: Discovering Emergent Themes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./comparing-students.html" class="sidebar-item-text sidebar-link">Optional: Comparing Across Students</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digging-deeper.html" class="sidebar-item-text sidebar-link active">Step 4: Digging Deeper</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#student-a" id="toc-student-a" class="nav-link active" data-scroll-target="#student-a">Student A</a>
+  <ul class="collapse">
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#r-environment" id="toc-r-environment" class="nav-link" data-scroll-target="#r-environment">R Environment</a></li>
+  <li><a href="#external-resources" id="toc-external-resources" class="nav-link" data-scroll-target="#external-resources">External Resources</a></li>
+  </ul></li>
+  <li><a href="#student-b" id="toc-student-b" class="nav-link" data-scroll-target="#student-b">Student B</a>
+  <ul class="collapse">
+  <li><a href="#workflow-1" id="toc-workflow-1" class="nav-link" data-scroll-target="#workflow-1">Workflow</a></li>
+  <li><a href="#efficiency" id="toc-efficiency" class="nav-link" data-scroll-target="#efficiency">Efficiency</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/atheobold/QDA-tutorial-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Step 4: Digging Deeper</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>I purposefully excluded the words “knowledge” or “understanding” from the definitions of the themes that emerged from the data, because I cannot state that a student “understands” or “knows” a concept solely based on their R code. Additional information is absolutely necessary in order to make this type of statement.</p>
+<p>Therefore, to better understand a student’s conceptual understand of the code they produced, I conducted interviews with each student. I asked both students to articulate for me the purpose of each line of code in their R script, following up with additional clarifying questions if necessary.</p>
+<p>In each section below I detail how these interviews informed my understanding of the themes outlined previously. Each section begins with a description of each student, providing the reader with an overview of each student’s previous computing experiences prior to the graduate-level Applied Statistics (GLAS) I course.</p>
+<section id="student-a" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="student-a">Student A</h2>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="images/alicia.png" class="img-fluid"></p>
+</div></div><p>The spring of 2018 was Student A’s first semester as a graduate student, pursuing a master’s degree in Fisheries and Wildlife Management. Student A identified as a Hispanic woman. She had completed a Bachelors in Ecology at a medium sized research university in the western United States. Student A had minimal programming experiences during her bachelor’s degree, with experiences stemming through three main outlets. Helping a postdoc in her lab analyze data from a lab trip exposed her to R, completing the Calculus series for engineers exposed her to MatLab, and enrolling in an information technology course exposed her to Python and Java. In her first semester as a graduate student, Student A enrolled in GLAS, at the recommendation of her adviser.</p>
+<section id="workflow" class="level3">
+<h3 class="anchored" data-anchor-id="workflow">Workflow</h3>
+<p>Something I noticed initially when reading through Student A’s R script was the absence of any code importing the dataset(s) used throughout their analysis. Thus, I asked Student A about their process of importing their data into R:</p>
+<p>Allison: “How do you read your data into R?” Student A: “I do import dataset.” Allison: “Ah, you use the”Import Dataset” button in the Enviornment tab to load your dataset in?” Student A: “Mhmm.”</p>
+<p>Through this conversation, I realized that Student A did not understand how to write code to import their dataset into R. Moreover, they had not recognized the code associated with their “Import Dataset” process appeared in the console once they pressed the “Import” button.</p>
+</section>
+<section id="reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility">Reproducibility</h3>
+<p>Directly connected to the absence of code to importing the datasets, the name of a dataset indicated “outliers” had been removed (<code>PADataNoOutlier</code>), yet there were no statements of code performing this data filtering process. Thus, I asked Student A how they had carried out this process:</p>
+<p><strong>Allison</strong>: “Right here, it appears that you have removed an outlier from the data, but I don’t see any code related to this removal. How did you do that?”</p>
+<p><strong>Student A</strong>: “In Excel. I know there’s <code>subset()</code>…that I could have subset it. But I forgot how to do that and I was trying to crunch this out, so I just wanted to get the data out, so I just went into Excel and deleted that and then imported the data.</p>
+<p>This was an eye opening exchange! First and foremost, I discovered that although Student A had used the <code>subset()</code> function in their code, they were not comfortable enough with the function to use it when removing an outlier from a dataset. This implies that, athough data filtering played a major role in Student A’s code, they did not have an understanding of <em>how</em> the <code>subset()</code> function could be applied in a scenario where more than one variable needed to be considered for inclusion / exclusion criteria.</p>
+</section>
+<section id="r-environment" class="level3">
+<h3 class="anchored" data-anchor-id="r-environment">R Environment</h3>
+<p>The theme of R Environment manifested in Student A’s code in two ways, (1) the use of <code>with()</code> to temporarily attach a dataset when plotting, and (2) the absence of the <code>data =</code> argument when using <code>lm()</code>. As both processes require the same step–selecting a column from a dataframe–I was intrigued why Student A exclusively used <code>with()</code> when creating data visualizations and the <code>$</code> operator when using <code>lm()</code>:</p>
+<p><strong>Allison</strong>: “So, I notice that you are using <code>with()</code> here—with your data, plot these variables. But then here when you are fitting your model, you say fit the model of <code>data$something</code>. I’m wondering why you used <code>with()</code> when making plots and <code>$</code> when fitting your model.”</p>
+<p><strong>Student A</strong>: “Yeah, and so that [pointing to <code>$</code> code] is what I think we learned in class. I think we did talk about this, “Oh if you don’t want to do <code>$</code> and call the data every time, you can do it like that.”</p>
+<p><strong>Allison</strong>: “Okay.”</p>
+<p><strong>Student A</strong>: “Um, and then I started doing that [points to <code>with()</code> code], because I found that online and I was like”okay.” And it wasn’t getting an error, I don’t know why I changed, but it wasn’t getting an error.”</p>
+<p><strong>Allison</strong>: “I see.”</p>
+<p><strong>Student A</strong>: “And then it worked, so then I just copied and pasted everything and kept working with that.”</p>
+<p>Another interesting discovery! Student A was simply copying the behavior they had learned in their GLAS course when using the <code>$</code> within the <code>lm()</code> function rather than utilizing the <code>data =</code> argument. The use of <code>with()</code>, however, Student A did not learn in class, but was gleaned from the internet. Their litmus test for using the code was whether it returned an error, implying Student A did not, in fact, understand the difference between these two methods for extracting variables from a dataframe.</p>
+</section>
+<section id="external-resources" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="external-resources">External Resources</h3>
+<div class="page-columns page-full"><p>This theme of Student A pulling solutions from external resources was found throughout their interview. Asking clarifying details about Student A’s use of <code>transform()</code>, I discovered they were unaware of the general purpose of the function* and the existance of alternative methods for changing the datatype of a variable in a dataframe.**</p><div class="no-row-height column-margin column-container"><span class="aside">*<code>transform()</code> converts its first argument to a data frame.</span><span class="aside">**For example, <code>RPMA2$Age &lt;- as.integer(RPMA2Growth$Age)</code> would have coverted the <code>Age</code> variable without the need to make a new dataframe.</span></div></div>
+<div class="page-columns page-full"><p>It was clear from Student A’s code they had used another student as a resource (<code>#Tanner's code/help</code>), however, it was unclear what portion of their code had been influenced by Tanner. Conversing with Student A, I learned they had discovered a bruteforce method for calculating the mean of specific values from one variable through Googling (<code>Weight1 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1], na.rm = TRUE)</code>). However, after talking with another graduate student about the process they were attempting to carry out, this student (Tanner) offered to send Student A their code. Enter <code>ddply()</code>. Using this code, Student A was able to obtain the mean length / weight across a variety of ages, accomplishing in two lines what had previously taken them 18 lines.***</p><div class="no-row-height column-margin column-container"><span class="aside">***Yet, these 18 lines continued to live in Student A’s code even after she found a more efficient method.</span></div></div>
+</section>
+</section>
+<section id="student-b" class="level1 page-columns page-full">
+<h1>Student B</h1>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="images/ellie.png" class="img-fluid"></p>
+</div></div><p>The spring of 2018 was Student B’s second semester as a graduate student, pursuing an interdisciplinary doctorate in Ecology and Environmental Sciences. Student B identified as White and a woman. She had completed a bachelor’s degree in engineering at a medium sized research university in the Midwestern United States. During her undergraduate degree, Student B’s coursework entailed extensive programming experiences in MatLab, multiple courses in GIS. Student B also had experiences working with relational databases using Access through a post-baccalaureate internship. During her first semester, Student B completed the “R programming” module in <strong>swirl</strong>, at the recommendation of her adviser, due to the extensive amount of computational work done in their lab. In her second semester, Student B enrolled in GLAS I, at the recommendation of her adviser.</p>
+<section id="workflow-1" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="workflow-1">Workflow</h3>
+<div class="page-columns page-full"><p>Reading through Student B’s code, I noticed straight away that she had a robust workflow for carrying out analysis. First, cleaning her workspace (<code>rm(list = ls())</code>)*, then sourcing in functions from an external R script. As the GLAS course did not teach this type of process, I asked Student B for additional details about these statements of code:</p><div class="no-row-height column-margin column-container"><span class="aside">*Jenny Bryan has some great advice on why not to use <code>setwd()</code> and <code>rm(list = ls())</code> at the top of R scripts <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script">here</a>.</span></div></div>
+<p><strong>Allison</strong>: “What is the purpose of the first line of your R script?”</p>
+<p><strong>Student B</strong>: “That clears the work space. That’s something you see in a lot of people’s R code.”</p>
+<p><strong>Allison</strong>: “What is the nature of this file you are sourcing in?”</p>
+<p><strong>Student B</strong>: “So, these are just like utility functions that are more generic that could be used for different kinds of analysis.”</p>
+<div class="page-columns page-full"><p>This conversation led me to believe that Student B understands the importance of not repeating yourself by reusing code she has already written. However, in terms of workflow, there still existed some problematic elements of Student A’s code. The mix of full paths and relative paths would make it rather difficult to share this script with another person.**</p><div class="no-row-height column-margin column-container"><span class="aside">**It is important to note that RStudio projects did not exist when these students were completing their project.</span></div></div>
+</section>
+<section id="efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="efficiency">Efficiency</h3>
+<p>I was also intrigued by Student A’s use of <code>apply()</code> to calculate the likelihood across a matrix of possible values, as this repeated process was not explicitly taught in the GLAS course. Through my conversation with Student B, it became clear that their previous programming experiences during their undergrad opened the door for them to begin thinking about “optimizing” their code:</p>
+<p><strong>Student B</strong>: “Well, I was an engineering undergrad, so I had some Matlab and I remember we had to take an Intro to Matlab class freshman year and I remember being so frustrated during that class. It just didn’t make sense, like this coding stuff there is a jargon associated with it. I just remember being really frustrated and towards the end kinda getting it. And then I had to use Matlab not like a ton, but a little bit throughout my undergrad, so I got some practice writing functions and for-loops. But I didn’t necessarily start to think about, and this is a bad example of it, but I didn’t start to think about optimizing my code or I didn’t even know what object-oriented programming was until I started working with [my advisor].”</p>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<p>I had also noticed that throughout Student B’s code she used a variety of methods for filtering data, not sticking with one method for every instance. Sometimes Student B would use some combination of relational and / or logical statements and bracketing to filter observations:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gas <span class="ot">&lt;-</span> gas[<span class="sc">!</span>(<span class="fu">substr</span>(gas<span class="sc">$</span>sampleID,<span class="dv">3</span>,<span class="dv">3</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"b"</span>,<span class="st">"c"</span>)), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Other times, Student B would use the <code>subset()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>timeD <span class="ot">&lt;-</span> (<span class="fu">subset</span>(gas, gas<span class="sc">$</span>carboy <span class="sc">==</span> <span class="st">"D"</span>))<span class="sc">$</span>days<span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And sometimes, Student B would combine both bracketing and <code>subset()</code> in the same statement:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>N15_NO3_O_D <span class="ot">&lt;-</span> <span class="dv">40</span><span class="sc">*</span>((carboys[carboys<span class="sc">$</span>CarboyID <span class="sc">==</span> <span class="st">"D"</span>,]<span class="sc">$</span>EstN15NO3) <span class="sc">+</span> (<span class="fl">0.7</span><span class="sc">*</span>RstN<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span>RstN)))<span class="sc">/</span>(<span class="fu">subset</span>(gas, gas<span class="sc">$</span>carboy <span class="sc">==</span> <span class="st">"D"</span>)<span class="sc">$</span>Ar[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When I discussed these different methods with Student B, they were seemingly unphased about using different data filtering methods throughout their code. Moreover, she provided sophisticated descriptions of how each data filtering process was carried out by R. Seemingly, Student B’s prior programming experiences allowed her to access a more robust understanding of R, making her more agile at using a variety of methods to filter observations and select variables.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./comparing-students.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Optional: Comparing Across Students</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
