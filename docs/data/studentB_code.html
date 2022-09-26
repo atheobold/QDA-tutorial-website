@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.120">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>A Guide to Qualitatively Analyzing Computing Code - Student B Code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A Guide to Qualitatively Analyzing Computing Code</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Step-by-Step Guide</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../bio.html">About</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Student B Code</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analysis-framework.html" class="sidebar-item-text sidebar-link">Step 1: Selecting a Unit of Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-codes.html" class="sidebar-item-text sidebar-link">Step 2: Descriptive Codes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../themes.html" class="sidebar-item-text sidebar-link">Step 3: Discovering Emergent Themes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../comparing-students.html" class="sidebar-item-text sidebar-link">Optional: Comparing Across Students</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../digging-deeper.html" class="sidebar-item-text sidebar-link">Step 4: Digging Deeper</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Student B Code</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<pre><code>        rm(list = ls())
+        source("./Gas_Functions.R")
+
+        # Load data ####
+        load("***REDACTED***/gas")
+        load("***REDACTED***/carboys")
+
+        gas &lt;- gas[!(substr(gas$sampleID, 3, 3) %in% c("b", "c")), ]
+        gas$days &lt;- as.numeric(gas$minutesSinceAmendment / (24 * 60))
+
+        # Calculate molar fraction of N15-N2
+        RstN &lt;- 0.003678
+        R &lt;- ((gas$delN2 / 1000) + 1) * RstN
+        gas$N15_MF &lt;- R / (1 + R)
+
+
+        # Calculate concentration of N15-N14 N2 relative to Argon
+        gas$N15_N2_Ar &lt;- (gas$N15_MF * gas$N2Ar) * (40 / 28.014) 
+
+        #mol N15-N2 per mol Ar
+        # Function to calculate likelihood of parameters given data ####
+
+        nmle &lt;- function(P, t, y, N15_NO3_O){
+          yhat &lt;- N15_NO3_O * (1 - exp(-P[1] * t))
+          -sum(dnorm(y, yhat, exp(P[2]), log = T))
+        }
+
+
+        #### Carboy D ####
+
+        # Make vectors for time and N15-N2 observations
+
+        timeD &lt;- (subset(gas, gas$carboy == "D"))$days
+        obsD &lt;- subset(gas, gas$carboy == "D")$N15_N2_Ar
+        timeD &lt;- timeD[!is.na(obsD)]
+        obsD &lt;- obsD[!is.na(obsD)]
+
+        # Subtract off N15-N2 initially present in sample and set tracer N15-N2 to 0 at t=0
+        obsD &lt;- obsD - obsD[1]
+
+        # Estimate Initial concentration of N15-NO3 relative to Ar
+
+        N15_NO3_O_D &lt;- 40 * (
+                              (carboys[carboys$CarboyID == "D",]$EstN15NO3) + 
+                              (0.7 * RstN / (1 + RstN))
+                            ) / (subset(gas, gas$carboy == "D")$Ar[1])
+
+        # Estimate fraction of labeled nitrate that gets denitrified 
+
+        fracDenD = max(obsD) / N15_NO3_O_D
+
+        # Search for best parameters
+
+        mle.outD &lt;- nlm(f = nmle, p = c(1, 0.01), t = timeD, y = obsD, 
+                        N15_NO3_O = N15_NO3_O_D*fracDenD)
+        ktotEst &lt;- mle.outD$estimate[1] 
+        kuEst &lt;- ktotEst * (1 - fracDenD )
+        kDenEst &lt;- ktotEst * fracDenD 
+
+        #per day
+
+        sigmaEst &lt;- exp(mle.outD$estimate[2])
+
+        # Plot model with data
+
+        quartz(width = 4.5, height = 4)
+        par(mar = c(3.5, 4, 3, 1))
+
+        predictionTimesD &lt;- seq(0, max(timeD), length.out = 100)
+        predictionD &lt;- fracDenD * N15_NO3_O_D * (1 - exp(-ktotEst * predictionTimesD))
+
+        plot(x = predictionTimesD,
+             y = predictionD, 
+             col = "blue", type = "l", 
+             xlab = "" , 
+             ylab = "",
+             ylim = c(0,0.08),
+             main = "Mesocosm D",
+             las = 1)
+        points(timeD, obsD, pch = 19)
+        title(ylab = expression(paste("Tracer "^15, N[2],":Ar")), 
+              line = 2.5, font.sub = 2)
+        title(xlab = "Time (days)", line = 2,font.sub =2)
+        legend("bottomright", legend = c("Modeled", "Measured"), 
+               lty = c("solid", NA), col = c("blue", "black"), 
+               pch = c(NA, 19))
+
+        # Calculate confidence interval
+
+        # Make matrix of parameter combinations
+
+        numRows &lt;- 1000
+        kTotMin &lt;- 2
+        kTotMax &lt;- 60
+
+        pMat &lt;- matrix(
+                      data = c(seq(kTotMin, kTotMax, length.out = numRows), 
+                      rep(log(sigmaEst), times = numRows)),
+                      nrow = numRows)
+
+        likelihoods &lt;- apply(X = pMat,
+                             MARGIN = 1, 
+                             FUN = nmle, 
+                             t = timeD, 
+                             y = obsD,  
+                             N15_NO3_O = fracDenD*(N15_NO3_O_D)
+                             )
+
+        mlle &lt;- -min(likelihoods)
+        mlleIndex &lt;- which.min(likelihoods)
+        mlleCI &lt;- mlle - 1.96
+
+        lowerCIBound &lt;- pMat[1:mlleIndex,1][which.min(abs(mlleCI + likelihoods[1:mlleIndex]))]
+        upperCIBound &lt;- pMat[mlleIndex:length(likelihoods),1][which.min(abs(mlleCI + likelihoods[mlleIndex:length(likelihoods)]))]
+
+        CI &lt;- c(lowerCIBound, upperCIBound)
+        print(CI)
+
+        lowerCIBoundkDen &lt;- lowerCIBound * fracDenD
+        upperCIBoundkDen &lt;- upperCIBound * fracDenD
+
+
+        # Plot likelihoods with confidence intervals
+
+        quartz(width = 4.5, height = 4)
+        plot(x = seq(kTotMin,kTotMax, length.out = numRows),
+             y = -likelihoods,
+             type = "l",
+             xlab = "ktot (per day)",
+             ylab = "log(Likelihood)",
+             las = 1)
+
+        abline(v = lowerCIBound, lty = 2, col = "blue")
+        abline(v = upperCIBound, lty = 2, col = "blue")
+
+
+        #### Carboy E ####
+
+        # Make vectors for time and N15-N2 observations
+
+        timeE &lt;- (subset(gas, gas$carboy == "E"))$days
+        obsE &lt;- subset(gas, gas$carboy == "E")$N15_N2_Ar
+        timeE &lt;- timeE[!is.na(obsE)]
+        obsE &lt;- obsE[!is.na(obsE)]
+
+
+        # Subtract off N15-N2 initially present in sample and set tracer N15-N2 to 0 at t=0
+
+        obsE &lt;- obsE - obsE[1]
+
+        # Estimate Initial concentration of N15-NO3 relative to Ar
+
+        N15_NO3_O_E &lt;- 40*((carboys[carboys$CarboyID == "E",]$EstN15NO3) + (0.7*RstN/(1+RstN)))/(subset(gas, gas$carboy == "E")$Ar[1])
+
+        # Estimate fraction of labeled nitrate that gets denitrified 
+
+        fracDenE = max(obsE) / N15_NO3_O_E
+
+        # Search for best parameters
+
+        mle.outE &lt;- nlm(f = nmle, p = c(1, 0.01), t = timeE, y = obsE, 
+                        N15_NO3_O = N15_NO3_O_E * fracDenE)
+
+        ktotEst &lt;- mle.outE$estimate[1] 
+
+        #per day
+
+        kuEst &lt;- ktotEst * (1 - fracDenE )
+        kDenEst &lt;- ktotEst * fracDenE 
+
+        #per day
+
+        sigmaEst &lt;- exp(mle.outE$estimate[2])
+
+        # Plot model with data
+
+        quartz(width = 4.5, height = 4)
+        par(mar = c(3.5, 4, 3, 1))
+
+        predictionTimesE &lt;- seq(0,max(timeE), length.out = 100)
+        predictionE &lt;- fracDenE * N15_NO3_O_E * (1 - exp(-ktotEst * predictionTimesE))
+        plot(x = predictionTimesE, 
+             y = predictionE, 
+             col = "blue", type = "l", 
+             xlab = "" , 
+             ylab = "",
+             ylim = c(0,0.08),
+             main = "Mesocosm E",
+             las = 1)
+        points(timeE, obsE, pch = 19)
+        title(ylab = expression(paste("Tracer "^15, N[2],":Ar")), 
+              line = 2.5, font.sub = 2)
+        title(xlab = "Time (days)", line = 2,font.sub =2)
+        legend("bottomright", legend = c("Modeled", "Measured"), 
+               lty = c("solid", NA), col = c("blue", "black"), 
+               pch = c(NA, 19))
+
+        # Calculate confidence interval
+        # Make matrix of parameter combinations
+
+        numRows &lt;- 1000
+        kTotMin &lt;- 2
+        kTotMax &lt;- 10
+
+        pMat &lt;- matrix(data = c(seq(kTotMin, kTotMax, length.out = numRows), 
+                                rep(log(sigmaEst), times = numRows)),
+                       nrow = numRows)
+
+        likelihoods &lt;- apply(X = pMat, 
+                             MARGIN = 1, 
+                             FUN = nmle, 
+                             t = timeE, 
+                             y = obsE, 
+                             N15_NO3_O = fracDenE*(N15_NO3_O_E)
+                             )
+
+        mlle &lt;- -min(likelihoods)
+        mlleIndex &lt;- which.min(likelihoods)
+        mlleCI &lt;- mlle - 1.96
+
+        lowerCIBound &lt;- pMat[1:mlleIndex,1][which.min(abs(mlleCI + likelihoods[1:mlleIndex]))]
+
+        upperCIBound &lt;- pMat[mlleIndex:length(likelihoods),1][which.min(abs(mlleCI + likelihoods[mlleIndex:length(likelihoods)]))]
+
+        CI &lt;- c(lowerCIBound, upperCIBound)
+        print(CI)
+
+        lowerCIBoundkDen &lt;- lowerCIBound * fracDenE
+        upperCIBoundkDen &lt;- upperCIBound * fracDenE
+
+        # Plot likelihoods with confidence intervals
+
+        quartz(width = 4.5, height = 4)
+
+        plot(x = seq(kTotMin,kTotMax, 
+             length.out = numRows),
+             y = -likelihoods,
+             type = "l",
+             xlab = "ktot (per day)",
+             ylab = "log(Likelihood)",
+             las = 1)
+        abline(v = lowerCIBound, lty = 2, col = "blue")
+        abline(v = upperCIBound, lty = 2, col = "blue")
+
+
+        #### Carboy F ####
+
+        # Make vectors for time and N15-N2 observations
+
+        timeF &lt;- (subset(gas, gas$carboy == "F"))$days
+        obsF &lt;- subset(gas, gas$carboy == "F")$N15_N2_Ar
+        timeF &lt;- timeF[!is.na(obsF)]
+        obsF &lt;- obsF[!is.na(obsF)]
+
+        # Subtract off N15-N2 initially present in sample and set tracer N15-N2 to 0 at t=0
+
+        obsF &lt;- obsF - obsF[1]
+
+        # Estimate Initial concentration of N15-NO3 relative to Ar
+
+        N15_NO3_O_F &lt;- 40 * (
+                              (carboys[carboys$CarboyID == "F",]$EstN15NO3) + 
+                              (0.7 * RstN / (1 + RstN))
+                              ) / (subset(gas, gas$carboy == "F")$Ar[1])
+
+        # Estimate fraction of labeled nitrate that gets denitrified 
+
+        fracDenF = max(obsF) / N15_NO3_O_F
+
+        # Search for best parameters
+
+        mle.outF &lt;- nlm(f = nmle, p = c(1, 0.01), t = timeF, y = obsF, 
+                        N15_NO3_O = N15_NO3_O_F * fracDenF)
+        ktotEst &lt;- mle.outF$estimate[1] 
+
+        #per day
+
+        kuEst &lt;- ktotEst * (1 - fracDenF )
+        kDenEst &lt;- ktotEst * fracDenF 
+
+        #per day
+
+        sigmaEst &lt;- exp(mle.outE$estimate[2])
+
+        # Plot model with data
+
+        quartz(width = 4.5, height = 4)
+        par(mar = c(3.5, 4, 3, 1))
+
+        predictionTimesF &lt;- seq(0, max(timeF), length.out = 100)
+        predictionF &lt;- fracDenF * N15_NO3_O_F * (1 - exp(-ktotEst * predictionTimesF))
+
+        plot(x = predictionTimesF, 
+             y = predictionF, 
+             col = "blue", type = "l", 
+             xlab = "" , 
+             ylab = "",
+             ylim = c(0,0.08),
+             main = "Mesocosm F",
+             las = 1)
+        points(timeF, obsF, pch = 19)
+        title(ylab = expression(paste("Tracer "^15, N[2],":Ar")), 
+              line = 2.5, font.sub = 2)
+        title(xlab = "Time (days)", line = 2,font.sub =2)
+        legend("bottomright", legend = c("Modeled", "Measured"), 
+               lty = c("solid", NA), col = c("blue", "black"), 
+               pch = c(NA, 19))
+
+        # Calculate confidence interval
+
+        # Make matrix of parameter combinations
+
+        numRows &lt;- 1000
+        kTotMin &lt;- 2
+        kTotMax &lt;- 5
+
+        pMat &lt;- matrix(data = c(seq(kTotMin, kTotMax, length.out = numRows), 
+                                rep(log(sigmaEst), times = numRows)),
+                       nrow = numRows)
+
+        likelihoods &lt;- apply(X = pMat, 
+                             MARGIN = 1, 
+                             FUN = nmle, 
+                             t = timeF, 
+                             y = obsF, 
+                             N15_NO3_O = fracDenF*(N15_NO3_O_F)
+                             )
+
+        mlle &lt;- -min(likelihoods)
+        mlleIndex &lt;- which.min(likelihoods)
+        mlleCI &lt;- mlle - 1.96
+
+        lowerCIBound &lt;- pMat[1:mlleIndex,1][which.min(abs(mlleCI + likelihoods[1:mlleIndex]))]
+        upperCIBound &lt;- pMat[mlleIndex:length(likelihoods),1][which.min(abs(mlleCI + likelihoods[mlleIndex:length(likelihoods)]))]
+
+        CI &lt;- c(lowerCIBound, upperCIBound)
+        print(CI)
+
+        lowerCIBoundkDen &lt;- lowerCIBound * fracDenF
+        upperCIBoundkDen &lt;- upperCIBound * fracDenF
+
+        # Plot likelihoods with confidence intervals
+
+        quartz(width = 4.5, height = 4)
+
+        plot(x = seq(kTotMin,kTotMax, 
+             length.out = numRows),
+             y = -likelihoods,
+             type = "l",
+             xlab = "ktot (per day)",
+             ylab = "log(Likelihood)",
+             las = 1)
+        abline(v = lowerCIBound, lty = 2, col = "blue")
+        abline(v = upperCIBound, lty = 2, col = "blue")</code></pre>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

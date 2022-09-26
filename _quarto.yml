@@ -12,6 +12,8 @@ project:
       - digging-deeper.qmd
       - comparing-students.qmd
       - bio.qmd
+      - data/studentA_code.qmd
+      - data/studentB_code.qmd
 
 website:
   title: "A Guide to Qualitatively Analyzing Computing Code"
