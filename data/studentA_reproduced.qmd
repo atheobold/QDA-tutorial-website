@@ -13,14 +13,12 @@ execute:
 The following analysis reproduces Student A's code in the context of the `penguins` dataset from the **palmerpenguins** package [@penguins].
 
 ```{r}
+#| message: false
+
 library(palmerpenguins)
 library(tidyverse)
 
 set.seed(123)
-
-## Creating a variable similar to "Age"
-penguins <- penguins |> 
-  mutate(age = )
 ```
 
 The only variable type missing from the `penguins` dataset is a variable similar to Student A's "Age" variable. The `pengins` dataset contains information on adult penguins. Depending on the size of the penguin, they can take between three and eight years until they begin breeding. Most species of penguins take at least five years. Thus, when creating an `age` variable in the `penguins` dataset I simulated values from a Normal distribution with mean 5 and standard deviation 1.
@@ -35,6 +33,8 @@ penguins <- penguins |>
 ## Reproducing Student A's Code
 
 ```{r}
+#| eval: false
+
 #upper anterior measurement Linear model
 linearAnterior <- lm(penguins$bill_length_mm~penguins$bill_depth_mm)
 summary(linearAnterior)
