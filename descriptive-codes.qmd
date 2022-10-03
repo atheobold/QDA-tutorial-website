@@ -39,7 +39,10 @@ For this research, I chose to use descriptive codes as I sought to *describe* th
 ## Student A -- Descriptive Codes
 
 If you are interested in seeing the original R script file from Student A, 
-you can find that [here](data/studentA_code.qmd). 
+you can find that [here](data/studentA_code.qmd). If while reading you
+wonder what the output of a specific statement is, I have reproduced Student
+A's code using the `penguins` dataset [@penguins], available
+[here](data/studentA_reproduced.qmd). 
 
 ```{r}
 #| echo: false

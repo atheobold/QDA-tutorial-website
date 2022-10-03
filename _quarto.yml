@@ -13,6 +13,7 @@ project:
       - bio.qmd
       - data/studentA_code.qmd
       - data/studentB_code.qmd
+      - data/studentA_reproduced.qmd
 
 website:
   title: "A Guide to Qualitatively Analyzing Computing Code"
