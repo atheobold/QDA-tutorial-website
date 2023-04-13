@@ -34,6 +34,11 @@ website:
       - icon: github
         href: https://github.com/atheobold/coding_code_JSE
 
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2023, Allison Theobold"
+    background: "#D9E3E4"
+    
   sidebar:
     pinned: true
     align: center
