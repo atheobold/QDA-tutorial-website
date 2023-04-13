@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.120">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -143,13 +143,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html">Home</a>
+    <a class="nav-link" href="./blog.html">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">Step-by-Step Guide</a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Step-by-Step Guide</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bio.html">About</a>
+    <a class="nav-link" href="./bio.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/atheobold/coding_code_JSE"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -234,6 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -275,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="external-resources" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="external-resources">External Resources</h3>
-<div class="page-columns page-full"><p>This theme of Student A pulling solutions from external resources was found throughout their interview. Asking clarifying details about Student A’s use of <code>transform()</code>, I discovered they were unaware of the general purpose of the function* and the existance of alternative methods for changing the datatype of a variable in a dataframe.**</p><div class="no-row-height column-margin column-container"><span class="aside">*<code>transform()</code> converts its first argument to a data frame.</span><span class="aside">**For example, <code>RPMA2$Age &lt;- as.integer(RPMA2Growth$Age)</code> would have coverted the <code>Age</code> variable without the need to make a new dataframe.</span></div></div>
-<div class="page-columns page-full"><p>It was clear from Student A’s code they had used another student as a resource (<code>#Tanner's code/help</code>), however, it was unclear what portion of their code had been influenced by Tanner. Conversing with Student A, I learned they had discovered a bruteforce method for calculating the mean of specific values from one variable through Googling (<code>Weight1 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1], na.rm = TRUE)</code>). However, after talking with another graduate student about the process they were attempting to carry out, this student (Tanner) offered to send Student A their code. Enter <code>ddply()</code>. Using this code, Student A was able to obtain the mean length / weight across a variety of ages, accomplishing in two lines what had previously taken them 18 lines.***</p><div class="no-row-height column-margin column-container"><span class="aside">***Yet, these 18 lines continued to live in Student A’s code even after she found a more efficient method.</span></div></div>
+<div class="page-columns page-full"><p>This theme of Student A pulling solutions from external resources was found throughout their interview. Asking clarifying details about Student A’s use of <code>transform()</code>, I discovered they were unaware of the general purpose of the function* and the existance of alternative methods for changing the datatype of a variable in a dataframe.**</p><div class="no-row-height column-margin column-container"><span class="">*<code>transform()</code> converts its first argument to a data frame.</span><span class="">**For example, <code>RPMA2$Age &lt;- as.integer(RPMA2Growth$Age)</code> would have coverted the <code>Age</code> variable without the need to make a new dataframe.</span></div></div>
+<div class="page-columns page-full"><p>It was clear from Student A’s code they had used another student as a resource (<code>#Tanner's code/help</code>), however, it was unclear what portion of their code had been influenced by Tanner. Conversing with Student A, I learned they had discovered a bruteforce method for calculating the mean of specific values from one variable through Googling (<code>Weight1 &lt;- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1], na.rm = TRUE)</code>). However, after talking with another graduate student about the process they were attempting to carry out, this student (Tanner) offered to send Student A their code. Enter <code>ddply()</code>. Using this code, Student A was able to obtain the mean length / weight across a variety of ages, accomplishing in two lines what had previously taken them 18 lines.***</p><div class="no-row-height column-margin column-container"><span class="">***Yet, these 18 lines continued to live in Student A’s code even after she found a more efficient method.</span></div></div>
 </section>
 </section>
 <section id="student-b" class="level1 page-columns page-full">
@@ -287,12 +298,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div></div><p>The spring of 2018 was Student B’s second semester as a graduate student, pursuing an interdisciplinary doctorate in Ecology and Environmental Sciences. Student B identified as White and a woman. She had completed a bachelor’s degree in engineering at a medium sized research university in the Midwestern United States. During her undergraduate degree, Student B’s coursework entailed extensive programming experiences in MatLab, multiple courses in GIS. Student B also had experiences working with relational databases using Access through a post-baccalaureate internship. During her first semester, Student B completed the “R programming” module in <strong>swirl</strong>, at the recommendation of her adviser, due to the extensive amount of computational work done in their lab. In her second semester, Student B enrolled in GLAS I, at the recommendation of her adviser.</p>
 <section id="workflow-1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="workflow-1">Workflow</h3>
-<div class="page-columns page-full"><p>Reading through Student B’s code, I noticed straight away that she had a robust workflow for carrying out analysis. First, cleaning her workspace (<code>rm(list = ls())</code>)*, then sourcing in functions from an external R script. As the GLAS course did not teach this type of process, I asked Student B for additional details about these statements of code:</p><div class="no-row-height column-margin column-container"><span class="aside">*Jenny Bryan has some great advice on why not to use <code>setwd()</code> and <code>rm(list = ls())</code> at the top of R scripts <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script">here</a>.</span></div></div>
+<div class="page-columns page-full"><p>Reading through Student B’s code, I noticed straight away that she had a robust workflow for carrying out analysis. First, cleaning her workspace (<code>rm(list = ls())</code>)*, then sourcing in functions from an external R script. As the GLAS course did not teach this type of process, I asked Student B for additional details about these statements of code:</p><div class="no-row-height column-margin column-container"><span class="">*Jenny Bryan has some great advice on why not to use <code>setwd()</code> and <code>rm(list = ls())</code> at the top of R scripts <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script">here</a>.</span></div></div>
 <p><strong>Allison</strong>: “What is the purpose of the first line of your R script?”</p>
 <p><strong>Student B</strong>: “That clears the work space. That’s something you see in a lot of people’s R code.”</p>
 <p><strong>Allison</strong>: “What is the nature of this file you are sourcing in?”</p>
 <p><strong>Student B</strong>: “So, these are just like utility functions that are more generic that could be used for different kinds of analysis.”</p>
-<div class="page-columns page-full"><p>This conversation led me to believe that Student B understands the importance of not repeating yourself by reusing code she has already written. However, in terms of workflow, there still existed some problematic elements of Student A’s code. The mix of full paths and relative paths would make it rather difficult to share this script with another person.**</p><div class="no-row-height column-margin column-container"><span class="aside">**It is important to note that RStudio projects did not exist when these students were completing their project.</span></div></div>
+<div class="page-columns page-full"><p>This conversation led me to believe that Student B understands the importance of not repeating yourself by reusing code she has already written. However, in terms of workflow, there still existed some problematic elements of Student A’s code. The mix of full paths and relative paths would make it rather difficult to share this script with another person.**</p><div class="no-row-height column-margin column-container"><span class="">**It is important to note that RStudio projects did not exist when these students were completing their project.</span></div></div>
 </section>
 <section id="efficiency" class="level3">
 <h3 class="anchored" data-anchor-id="efficiency">Efficiency</h3>
@@ -361,7 +372,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -397,24 +425,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

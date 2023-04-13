@@ -17,7 +17,7 @@ project:
 
 website:
   title: "A Guide to Qualitatively Analyzing Computing Code"
-  #site-url: https://crsl4.github.io/julia-workshop
+  site-url: coding-code.netlify.app/
   repo-url: https://github.com/atheobold/QDA-tutorial-website
   repo-actions: [issue]
   navbar:
@@ -30,9 +30,11 @@ website:
          file: index.qmd
        - text: About
          file: bio.qmd
+    right: 
+      - icon: github
+        href: https://github.com/atheobold/coding_code_JSE
 
   sidebar:
-    #logo: "images/code.png"
     pinned: true
     align: center
     title: Step-by-Step Guide

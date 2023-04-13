@@ -2,6 +2,18 @@
 title: "Coding Code: Qualitative Methods for Investigating Data Science Skills"
 ---
 
+::: columns
+::: {.column width="75%"}
 ![Figure credit: Allison Horst](images/allison_horst_white_flip.jpg){fig-alt="A galaxy emerges from a young person's laptop"}
+:::
 
+::: {.column width="5%"}
+:::
+
+::: {.column width="20%"}
 Students are creative thinkers, and their code provides a window into their learning process. A qualitative analysis of a student's code can provide insight into their creative process and collective learning process, rather than focusing solely on whether the code is executable. Moreover, qualitative methods allow for the comparison across students' code to identify learning trajectories that may exist and potential growth points.
+:::
+:::
+
+
+
